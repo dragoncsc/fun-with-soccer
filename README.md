@@ -15,7 +15,9 @@ xGoal.py is used to build a model of attempts on goal, and is additionally used 
 Currently, the expected goal model tries to capture the probability of a shot converting into a goal. The parameters that define the model include place of shot, body part used to take shot and assist type. Not all goals provide this data. These parameters account for penalties and roughly account for own goals, but further thought is needed for the latter. ESPN does not give very accurate data for shot location. Here are some examples: 
 
 "Goal! Celtic 1, FC Bayern München 2. Javi Martínez (FC Bayern München) header from the centre of the box to the bottom left corner. Assisted by David Alaba with a cross."
+
 "Goal! Roma 3, Chelsea 0. Diego Perotti (Roma) right footed shot from outside the box to the bottom left corner. Assisted by Aleksandar Kolarov."
+
 "Goal! Paris Saint Germain 4, RSC Anderlecht 0. Layvin Kurzawa (Paris Saint Germain) header from the left side of the six yard box to the bottom left corner."
 
 In place of precise locations, we are given approximate spaces inside of the box. This may actually be helpful as increased precision may add noise (think feet from the goal) while the discriptions are sufficiently detailed enough to draw a heat map of attempts in and around the 16 yard box. Currently, the model is too noisey to offer interesting 20 game simulations, in an effort to refine the accuracy of the model assist type may be removed. If a goal's commentary does not provide this data, then only the parameters given by the commentary will be accounted for in calculating the expected goal percentage. The sum total of all the expected goal calculations for a team during the game will represent the expected amount of goals for that team during the game, the sum of the opponent's calculations can be considered a measure of the first team's defensive strength.
