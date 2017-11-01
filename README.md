@@ -5,8 +5,6 @@ Rough soccer simulator that scrapes ESPN soccer commentaries and builds and cach
 Once a particular game's web page is hit, the scraper will store the page on disk as a flat file, where each day scraped is a new directory, and each league is a different subdirectory within each day. Example:
 
 data/ ->  20160203/   -> English_Premier_League_Table/   -> gameid=422425.txt
-                      -> French_Ligue_1_Table/ ->  gameid=.......txt
-                      -> Italian_Serie_A_Table/ -> gameid=.........txt
 
 The individual game files are stored with the id given to them by ESPN. After the pages are cached, the scraper extracts information regarding shots on goal, yellow cards, red cards, substitutions. etc and stores this information as a document in a Couchdb instance. The purpose of caching the entire webpage is to allow the user to change the stored parameters/ modify analysis/extract different data down the line. 
 
@@ -22,13 +20,21 @@ Currently, the expected goal model tries to capture the probability of a shot co
 
 In place of precise locations, we are given approximate spaces inside of the box. This may actually be helpful as increased precision may add noise (think feet from the goal) while the discriptions are sufficiently detailed enough to draw a heat map of attempts in and around the 16 yard box. Currently, the model is too noisey to offer interesting 20 game simulations, in an effort to refine the accuracy of the model assist type may be removed. If a goal's commentary does not provide this data, then only the parameters given by the commentary will be accounted for in calculating the expected goal percentage. The sum total of all the expected goal calculations for a team during the game will represent the expected amount of goals for that team during the game, the sum of the opponent's calculations can be considered a measure of the first team's defensive strength.
 
+
+Example of use:
+Run espn_scraper.py, with the option of adjusting the dates on the bottom of the file, to scrape data.
+
 The 'graph_Xg_one_team' function allows the user to graph the expected goals for one team. Example useage of the xGoals file(Paste this below the average_goals_calc() class definition):
 
 
 xG_calculator = average_goals_calc()
+
 xG_calculator.build_model()
+
 c_dates, c_goals, c_xG = xG_calculator.calc_for_team(set(["Chelsea"]), "20150901", "20160701")
+
 c_r_xG = xG_calculator.get_running_xG(c_xG)
+
 xG_calculator.graph_Xg_one_team(c_dates, c_goals, c_xG, "Chelsea")
 
 
