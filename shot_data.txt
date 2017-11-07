@@ -1,411 +1,413 @@
-Compound Events(2157, 2217)
+Compound Events(723, 743)
 
-left side-cross(0, 24)
+left side-cross(0, 8)
 
-penalty-left footed shot(2604, 3183)
+penalty-left footed shot(875, 1071)
 
-left footed shot-headed pass(27, 606)
+left footed shot-headed pass(9, 202)
 
-right side-left footed shot-headed pass(33, 750)
+right side-left footed shot-headed pass(11, 251)
 
-left side of the six yard box-headed pass(3, 12)
+left side of the six yard box-headed pass(1, 4)
 
-right side-left footed shot-direct free kick(0, 3)
+right side-left footed shot-direct free kick(0, 1)
 
-right side-header-corner(3, 30)
+right side-header-corner(1, 10)
 
-left side-header-direct free kick(0, 6)
+left side-header-direct free kick(0, 2)
 
-very close range-left footed shot-through ball(99, 135)
+very close range-left footed shot-through ball(33, 45)
 
-very close range-corner(51, 51)
+very close range-corner(17, 17)
 
-left side-right footed shot-cross(126, 2865)
+left side-right footed shot-cross(42, 960)
 
-right side-right footed shot-through ball(1791, 10347)
+right side-right footed shot-through ball(599, 3466)
 
-centre of the box-left footed shot-fast break(1062, 1839)
+centre of the box-left footed shot-fast break(358, 619)
 
-left side-right footed shot-through ball(549, 3003)
+left side-right footed shot-through ball(183, 1003)
 
-corner(1428, 1449)
+corner(479, 486)
 
-left footed shot-cross(63, 1311)
+left footed shot-cross(21, 441)
 
-long range-right footed shot-direct free kick(0, 27)
+long range-right footed shot-direct free kick(0, 9)
 
-right side-cross(0, 21)
+right side-cross(0, 7)
 
-long range-left footed shot-cross(3, 84)
+long range-left footed shot-cross(1, 28)
 
-outside the box-header-cross(6, 405)
+outside the box-header-cross(2, 135)
 
-outside the box-right footed shot-corner(192, 3624)
+outside the box-right footed shot-corner(67, 1223)
 
-outside the box-header(21, 732)
+outside the box-header(7, 246)
 
-centre of the box-left footed shot-through ball(2646, 7716)
+centre of the box-left footed shot-through ball(888, 2586)
 
-centre of the box-left footed shot-corner(240, 879)
+penalty(4018, 4955)
 
-very close range-header-cross(4488, 13620)
+centre of the box-left footed shot-corner(80, 293)
 
-right side of the six yard box-header-corner(18, 108)
+very close range-header-cross(1502, 4556)
 
-long range(0, 6)
+right side of the six yard box-header-corner(6, 36)
 
-cross(0, 27)
+long range(213, 8058)
 
-long range-right footed shot-headed pass(9, 360)
+cross(0, 9)
 
-left side of the six yard box-header-corner(48, 177)
+long range-right footed shot-headed pass(3, 121)
 
-centre of the box-right footed shot-corner(426, 1431)
+left side of the six yard box-header-corner(16, 59)
 
-centre of the box(147, 408)
+centre of the box-right footed shot-corner(144, 483)
 
-right side of the six yard box-left footed shot-headed pass(15, 111)
+centre of the box(22513, 148412)
 
-right side of the six yard box-right footed shot-fast break(81, 117)
+right side of the six yard box-left footed shot-headed pass(5, 37)
 
-right side of the six yard box-right footed shot-cross(666, 3294)
+right side of the six yard box-right footed shot-fast break(27, 39)
 
-right side-left footed shot-fast break(60, 312)
+right side of the six yard box-right footed shot-cross(223, 1103)
 
-left side of the six yard box-left footed shot-fast break(54, 96)
+right side-left footed shot-fast break(20, 104)
 
-left side-header-through ball(0, 18)
+left side of the six yard box-left footed shot-fast break(18, 32)
 
-left side of the six yard box-left footed shot-cross(423, 1878)
+left side-header-through ball(0, 6)
 
-outside the box-left footed shot-through ball(213, 1017)
+left side of the six yard box-left footed shot-cross(143, 634)
 
-long range-right footed shot-through ball(12, 69)
+outside the box-left footed shot-through ball(71, 339)
 
-long range-right footed shot-fast break(15, 153)
+long range-right footed shot-through ball(4, 23)
 
-right side of the six yard box-left footed shot-direct free kick(0, 3)
+long range-right footed shot-fast break(5, 51)
 
-left side of the six yard box-right footed shot-headed pass(72, 288)
+right side of the six yard box-left footed shot-direct free kick(0, 1)
 
-centre of the box-right footed shot-through ball(5235, 14814)
+left side of the six yard box-right footed shot-headed pass(24, 98)
 
-outside the box-through ball(0, 3)
+centre of the box-right footed shot-through ball(1755, 4964)
 
-left footed shot(2295, 14736)
+outside the box-through ball(0, 1)
 
-very close range-right footed shot-corner(540, 657)
+left footed shot(14311, 153928)
 
-right footed shot-direct free kick(0, 36)
+very close range-right footed shot-corner(181, 221)
 
-centre of the box-right footed shot-direct free kick(0, 18)
+right footed shot-direct free kick(0, 12)
 
-long range-left footed shot-direct free kick(0, 9)
+centre of the box-right footed shot-direct free kick(0, 6)
 
-very close range-left footed shot(3348, 5418)
+long range-left footed shot-direct free kick(0, 3)
 
-left side of the six yard box-header(225, 1242)
+very close range-left footed shot(1121, 1815)
 
-right side-right footed shot-direct free kick(0, 6)
+left side of the six yard box-header(76, 418)
 
-centre of the box-corner(15, 27)
+right side-right footed shot-direct free kick(0, 2)
 
-left side-header(42, 1194)
+centre of the box-corner(5, 9)
 
-outside the box-left footed shot-corner(93, 1806)
+left side-header(15, 401)
 
-left side of the six yard box-right footed shot-cross(300, 1815)
+outside the box-left footed shot-corner(31, 607)
 
-right side of the six yard box-left footed shot-fast break(3, 12)
+left side of the six yard box-right footed shot-cross(100, 608)
 
-left side-left footed shot-direct free kick(0, 3)
+right side of the six yard box-left footed shot-fast break(1, 4)
 
-left side of the six yard box-header-headed pass(66, 348)
+left side-left footed shot-direct free kick(0, 1)
 
-outside the box-left footed shot-headed pass(186, 6648)
+left side of the six yard box-header-headed pass(22, 118)
 
-centre of the box-cross(141, 1485)
+outside the box-left footed shot-headed pass(62, 2225)
 
-right side of the six yard box-headed pass(3, 3)
+centre of the box-cross(49, 502)
 
-very close range-left footed shot-corner(258, 327)
+right side of the six yard box-headed pass(1, 1)
 
-right side of the six yard box-right footed shot-headed pass(132, 567)
+very close range-left footed shot-corner(87, 110)
 
-right side-left footed shot-corner(36, 417)
+right side of the six yard box-right footed shot-headed pass(44, 190)
 
-left footed shot-fast break(57, 276)
+right side-left footed shot-corner(12, 140)
 
-outside the box(18, 57)
+left footed shot-fast break(19, 93)
 
-header-corner(0, 15)
+outside the box(5638, 207961)
 
-left side of the six yard box-header-fast break(0, 9)
+header-corner(0, 5)
 
-centre of the box-through ball(0, 6)
+left side of the six yard box-header-fast break(0, 3)
 
-left side-left footed shot-headed pass(138, 2391)
+centre of the box-through ball(0, 2)
 
-centre of the box-right footed shot-cross(4536, 33312)
+left side-left footed shot-headed pass(46, 803)
 
-left side-right footed shot-corner(60, 582)
+centre of the box-right footed shot-cross(1518, 11159)
 
-right side of the six yard box-cross(6, 135)
+left side-right footed shot-corner(20, 195)
 
-left side-right footed shot-fast break(246, 975)
+right side of the six yard box-cross(2, 45)
 
-outside the box-right footed shot-direct free kick(6, 1047)
+left side-right footed shot-fast break(82, 325)
 
-centre of the box-left footed shot-headed pass(801, 5040)
+outside the box-right footed shot-direct free kick(2, 350)
 
-right footed shot(3582, 24759)
+centre of the box-left footed shot-headed pass(271, 1693)
 
-left side-right footed shot(2040, 42102)
+right footed shot(26726, 262021)
 
-right side of the six yard box-right footed shot-through ball(219, 591)
+left side-right footed shot(686, 14136)
 
-centre of the box-header-cross(14127, 156150)
+right side of the six yard box-right footed shot-through ball(74, 199)
 
-right side of the six yard box-header-fast break(0, 6)
+centre of the box-header-cross(4738, 52374)
 
-right side of the six yard box-left footed shot(291, 1224)
+right side of the six yard box-header-fast break(0, 2)
 
-left footed shot-direct free kick(0, 21)
+right side of the six yard box-left footed shot(97, 414)
 
-right side of the six yard box-header(168, 1074)
+left footed shot-direct free kick(0, 7)
 
-left side of the six yard box-right footed shot-through ball(81, 237)
+right side of the six yard box-header(56, 362)
 
-very close range-cross(141, 411)
+left side of the six yard box-right footed shot-through ball(27, 81)
 
-left side of the six yard box-left footed shot-corner(51, 147)
+very close range-cross(47, 138)
 
-centre of the box-header-fast break(33, 93)
+left side of the six yard box-left footed shot-corner(18, 50)
 
-left side-headed pass(0, 3)
+centre of the box-header-fast break(11, 31)
 
-centre of the box-left footed shot(10902, 63252)
+left side-headed pass(0, 1)
 
-right side of the six yard box(6, 24)
+centre of the box-left footed shot(3659, 21244)
 
-outside the box-header-corner(0, 3)
+right side of the six yard box(1515, 7386)
 
-outside the box-right footed shot-through ball(606, 2523)
+outside the box-header-corner(0, 1)
 
-left side-header-headed pass(3, 48)
+outside the box-right footed shot-through ball(204, 846)
 
-right side of the six yard box-right footed shot(1455, 5451)
+left side-header-headed pass(1, 16)
 
-left side of the six yard box-header-direct free kick(0, 3)
+right side of the six yard box-right footed shot(486, 1829)
 
-right side of the six yard box-right footed shot-corner(66, 159)
+left side of the six yard box-header-direct free kick(0, 1)
 
-outside the box-left footed shot(5094, 209148)
+right side of the six yard box-right footed shot-corner(22, 53)
 
-right side-right footed shot-headed pass(201, 3150)
+outside the box-left footed shot(1710, 70156)
 
-right side(3, 12)
+right side-right footed shot-headed pass(67, 1054)
 
-right side-header-cross(51, 3357)
+right side(2628, 38934)
 
-right side-header-direct free kick(0, 3)
+right side-header-cross(17, 1121)
 
-right side-right footed shot-fast break(522, 2535)
+right side-header-direct free kick(0, 1)
 
-left side of the six yard box-right footed shot-corner(39, 147)
+right side-right footed shot-fast break(177, 851)
 
-right side-header-headed pass(0, 39)
+left side of the six yard box-right footed shot-corner(13, 49)
 
-centre of the box-header-headed pass(291, 3180)
+right side-header-headed pass(0, 13)
 
-header-cross(60, 2928)
+centre of the box-header-headed pass(97, 1066)
 
-outside the box-header-fast break(0, 9)
+header-cross(21, 984)
 
-right footed shot-fast break(72, 306)
+outside the box-header-fast break(0, 3)
 
-centre of the box-header(1974, 22185)
+right footed shot-fast break(24, 104)
 
-centre of the box-right footed shot(18537, 99399)
+centre of the box-header(663, 7445)
 
-very close range-left footed shot-fast break(105, 120)
+centre of the box-right footed shot(6219, 33334)
 
-very close range-right footed shot(5931, 9357)
+very close range-left footed shot-fast break(35, 40)
 
-long range-left footed shot-fast break(3, 81)
+very close range-right footed shot(1983, 3130)
 
-outside the box-right footed shot-fast break(555, 4125)
+long range-left footed shot-fast break(1, 27)
 
-very close range-right footed shot-headed pass(639, 1326)
+outside the box-right footed shot-fast break(185, 1376)
 
-right footed shot-through ball(396, 2433)
+very close range-right footed shot-headed pass(216, 446)
 
-outside the box-left footed shot-fast break(273, 2211)
+right footed shot-through ball(132, 814)
 
-right side of the six yard box-left footed shot-through ball(12, 57)
+outside the box-left footed shot-fast break(92, 739)
 
-right footed shot-cross(108, 2217)
+right side of the six yard box-left footed shot-through ball(4, 19)
 
-long range-left footed shot-through ball(12, 51)
+right footed shot-cross(36, 740)
 
-left side-left footed shot-through ball(1230, 7746)
+long range-left footed shot-through ball(4, 17)
 
-left side-right footed shot-direct free kick(3, 15)
+left side-left footed shot-through ball(411, 2589)
 
-centre of the box-header-direct free kick(0, 27)
+left side-right footed shot-direct free kick(1, 5)
 
-right side-right footed shot-corner(63, 519)
+centre of the box-header-direct free kick(0, 9)
 
-centre of the box-header-through ball(180, 813)
+right side-right footed shot-corner(21, 175)
 
-very close range-headed pass(39, 69)
+centre of the box-header-through ball(60, 271)
 
-left footed shot-corner(3, 99)
+very close range-headed pass(14, 25)
 
-right side-header(24, 1113)
+left footed shot-corner(1, 33)
 
-right side of the six yard box-header-headed pass(60, 354)
+right side-header(8, 373)
 
-long range-left footed shot(168, 8322)
+right side of the six yard box-header-headed pass(20, 118)
 
-right side of the six yard box-header-cross(1173, 8028)
+long range-left footed shot(56, 2780)
 
-left side-left footed shot(2358, 47505)
+right side of the six yard box-header-cross(392, 2694)
 
-right side of the six yard box-header-direct free kick(0, 3)
+left side-left footed shot(794, 15934)
 
-centre of the box-left footed shot-cross(2313, 17151)
+right side of the six yard box-header-direct free kick(0, 1)
 
-very close range-header-corner(273, 438)
+centre of the box-left footed shot-cross(775, 5746)
 
-left side of the six yard box-left footed shot-headed pass(87, 411)
+very close range-header-corner(91, 146)
 
-outside the box-right footed shot-headed pass(351, 11286)
+left side of the six yard box-left footed shot-headed pass(30, 138)
 
-right side of the six yard box-left footed shot-cross(144, 630)
+outside the box-right footed shot-headed pass(118, 3778)
 
-left side-right footed shot-headed pass(81, 1470)
+right side of the six yard box-left footed shot-cross(48, 210)
 
-very close range-header-through ball(9, 12)
+left side-right footed shot-headed pass(27, 493)
 
-header-through ball(6, 12)
+very close range-header-through ball(3, 4)
 
-left side-left footed shot-fast break(432, 1893)
+header-through ball(2, 4)
 
-outside the box-left footed shot-cross(51, 2127)
+left side-left footed shot-fast break(145, 634)
 
-right side-left footed shot-through ball(165, 1002)
+outside the box-left footed shot-cross(17, 716)
 
-centre of the box-right footed shot-headed pass(1392, 9078)
+right side-left footed shot-through ball(55, 334)
 
-left side-header-corner(3, 27)
+centre of the box-right footed shot-headed pass(468, 3040)
 
-right side-left footed shot(1047, 22983)
+left side-header-corner(1, 9)
 
-fast break(15, 15)
+right side-left footed shot(351, 7713)
 
-very close range-left footed shot-cross(1038, 2046)
+fast break(5, 5)
 
-right side-header-through ball(0, 12)
+very close range-left footed shot-cross(346, 684)
 
-outside the box-header-headed pass(0, 15)
+right side-header-through ball(0, 4)
 
-right side-left footed shot-cross(45, 1179)
+outside the box-header-headed pass(0, 5)
 
-long range-header-cross(0, 3)
+right side-left footed shot-cross(15, 396)
 
-centre of the box-headed pass(3, 36)
+long range-header-cross(0, 1)
 
-outside the box-header-through ball(0, 33)
+centre of the box-headed pass(1, 12)
 
-right side-right footed shot-cross(231, 5706)
+outside the box-header-through ball(0, 11)
 
-right footed shot-headed pass(60, 972)
+right side-right footed shot-cross(77, 1907)
 
-right side-right footed shot(3564, 62664)
+right footed shot-headed pass(20, 325)
 
-date20171022
+right side-right footed shot(1196, 21004)
 
-very close range-right footed shot-through ball(108, 171)
+date20171106
 
-very close range-header-fast break(24, 27)
+very close range-right footed shot-through ball(37, 59)
 
-left side of the six yard box-right footed shot-fast break(24, 39)
+very close range-header-fast break(8, 9)
 
-header(33, 486)
+left side of the six yard box-right footed shot-fast break(8, 14)
 
-centre of the box-header-corner(72, 675)
+header(8980, 79005)
 
-left side of the six yard box-left footed shot-through ball(156, 411)
+centre of the box-header-corner(24, 226)
 
-left side of the six yard box(15, 45)
+left side of the six yard box-left footed shot-through ball(52, 139)
 
-left side of the six yard box-corner(3, 6)
+left side of the six yard box(1535, 7574)
 
-very close range-fast break(6, 6)
+left side of the six yard box-corner(1, 2)
 
-left side of the six yard box-header-cross(1143, 8217)
+very close range-fast break(2, 2)
 
-right side of the six yard box-corner(0, 6)
+left side of the six yard box-header-cross(381, 2749)
 
-very close range-right footed shot-cross(1959, 3825)
+right side of the six yard box-corner(0, 3)
 
-left side-header-cross(78, 3621)
+very close range-right footed shot-cross(657, 1283)
 
-centre of the box-right footed shot-fast break(2034, 3468)
+left side-header-cross(26, 1214)
 
-right side-header-fast break(0, 9)
+centre of the box-right footed shot-fast break(681, 1161)
 
-long range-left footed shot-corner(9, 162)
+right side-header-fast break(0, 3)
 
-left side-left footed shot-corner(51, 381)
+long range-left footed shot-corner(3, 55)
 
-right side of the six yard box-header-through ball(0, 15)
+left side-left footed shot-corner(17, 129)
 
-left side of the six yard box-header-through ball(6, 15)
+right side of the six yard box-header-through ball(0, 5)
 
-penalty-right footed shot(9348, 11562)
+left side of the six yard box-header-through ball(2, 5)
 
-very close range-header(1356, 2979)
+penalty-right footed shot(3143, 3884)
 
-left footed shot-through ball(240, 1698)
+very close range-header(455, 997)
 
-left side-left footed shot-cross(195, 4356)
+left footed shot-through ball(80, 568)
 
-long range-right footed shot-corner(27, 303)
+left side-left footed shot-cross(66, 1455)
 
-left side of the six yard box-cross(15, 108)
+long range-right footed shot-corner(9, 101)
 
-very close range-right footed shot-fast break(228, 252)
+left side of the six yard box-cross(5, 36)
 
-very close range(222, 330)
+very close range-right footed shot-fast break(78, 86)
 
-long range-left footed shot-headed pass(6, 177)
+very close range(7325, 14677)
 
-long range-right footed shot-cross(0, 81)
+long range-left footed shot-headed pass(2, 61)
 
-long range-right footed shot(369, 14190)
+long range-right footed shot-cross(0, 27)
 
-header-headed pass(3, 36)
+long range-right footed shot(125, 4752)
 
-left side(3, 12)
+header-headed pass(1, 12)
 
-right side of the six yard box-left footed shot-corner(15, 39)
+left side(2564, 40323)
 
-outside the box-left footed shot-direct free kick(15, 606)
+right side of the six yard box-left footed shot-corner(5, 13)
 
-left side of the six yard box-left footed shot(1107, 4107)
+outside the box-left footed shot-direct free kick(5, 203)
 
-very close range-header-headed pass(726, 1662)
+left side of the six yard box-left footed shot(370, 1374)
 
-left side of the six yard box-right footed shot(669, 2823)
+very close range-header-headed pass(244, 557)
 
-right footed shot-corner(9, 174)
+left side of the six yard box-right footed shot(223, 947)
 
-very close range-left footed shot-headed pass(276, 582)
+right footed shot-corner(3, 58)
 
-outside the box-right footed shot(9048, 369333)
+very close range-left footed shot-headed pass(94, 197)
 
-outside the box-right footed shot-cross(87, 3756)
+outside the box-right footed shot(3030, 123725)
 
-205
+outside the box-right footed shot-cross(29, 1257)
+
+206

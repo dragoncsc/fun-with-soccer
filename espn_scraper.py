@@ -145,7 +145,7 @@ class Parser():
 
     def parse_game_events(self, url, path, date, league):
         print "Current URL:: ", url
-        _events = {"goal":{}, "yellow card":{}, "red card":{}, "sub":{}}
+        _events = {"goal":defaultdict(list), "yellow card":defaultdict(list), "red card":defaultdict(list), "sub":defaultdict(list)}
         _scoring_event = defaultdict(list)
         gameId = url.split("?")[1]
         contents = self.pull_game_html(url, path, gameId)
@@ -183,11 +183,12 @@ class Parser():
             if event_t:
                 try:
                     # get the type of event and then call the appropiate espn function
+                    # ("goal",[team, minute, [scorer, assist]])
                     event_t = event_t(
                         event[0].renderContents().strip(),
                         event[2].renderContents().strip(),
                         curMatch)
-                    _events[event_t[0]][event_t[1][0]] = event_t[1][1:]
+                    _events[event_t[0]][event_t[1][0]].append(event_t[1][1:])
                 except Exception as e:
                     print e, "   error in: ", url, " Teams: ", curMatch.home, "   ", curMatch.away
         self.save_game(curMatch, _events, gameId, _scoring_event)
@@ -226,7 +227,7 @@ class Parser():
 
 if __name__ == "__main__":
     parse = Parser()
-    parse.get_date_games( datetime(2013, 12, 25), datetime(2010, 10, 13))
+    parse.get_date_games( datetime.today(), datetime(2017, 10, 9))
 #parse.get_date_games( datetime(2017, 10, 11), datetime(2017, 10, 9))
 
 

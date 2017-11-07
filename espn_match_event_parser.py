@@ -29,7 +29,7 @@ class ESPNMatchEventParser(MatchEventParser):
             assist = get_regex_matches("Assisted by ([A-Za-z ]+) with", event)
             if not assist:
                 assist = get_regex_matches("Assisted by ([A-Za-z ]+)\.", event)
-            return ("goal",(country, minute, (scorer, assist)))
+            return ("goal",[country, minute, [scorer, assist]])
         return ("goal",[country, minute, [scorer, None]])
         '''
         except Exception as e:
@@ -84,7 +84,7 @@ class ESPNMatchEventParser(MatchEventParser):
             print e
             print line, '\n\n\n'
 
-
+    # Map event found in commentary to event parser function
     @staticmethod
     def get_type( line ):
         events = {"Goal!":ESPNMatchEventParser.goal_event, 

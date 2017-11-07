@@ -1,4 +1,3 @@
-
 import numpy as np
 import plotly as py
 import plotly.graph_objs as go
@@ -9,8 +8,9 @@ from numpy import random
 import operator
 from collections import deque, defaultdict
 import csv
-
-
+from random import shuffle
+from copy import deepcopy
+import xlrd
 
 def is_goal(event):
     if event[0] == "Goal":
@@ -44,15 +44,20 @@ class average_goals_calc:
 	            cnt = self.locations[event[1]]
 	            if is_goal(event):
 	                self.locations[event[1]] = (cnt[0]+1, cnt[1]+1)
+	                self.compound_events[event[1]] = (cnt[0]+1, cnt[1]+1)
 	            else:
 	                self.locations[event[1]] = (cnt[0], cnt[1]+1)
+	                self.compound_events[event[1]] = (cnt[0], cnt[1]+1)
 	        if event[2]:
 	            condition_prob += '-' + event[2]
 	            cnt = self.attmp[event[2]]
 	            if is_goal(event):
 	                self.attmp[event[2]] = (cnt[0]+1, cnt[1]+1)
+	                self.compound_events[event[2]] = (cnt[0]+1, cnt[1]+1)
 	            else:
 	                self.attmp[event[2]] = (cnt[0], cnt[1]+1)
+	                self.compound_events[event[2]] = (cnt[0], cnt[1]+1)
+	        '''
 	        if event[3]:
 	            condition_prob += '-' + event[3]
 	            cnt = self.assist[event[3]]
@@ -60,6 +65,7 @@ class average_goals_calc:
 	                self.assist[event[3]] = (cnt[0]+1, cnt[1]+1)
 	            else:
 	                self.assist[event[3]] = (cnt[0], cnt[1]+1)
+	        '''
 	        condition_prob = '-'.join(  item for item in event[1:] if item  )
 	        if condition_prob in self.compound_events:
 	            cnt = self.compound_events[condition_prob]
@@ -74,16 +80,15 @@ class average_goals_calc:
 	                self.compound_events[condition_prob] = (0, 1)
 	    return
 
-
-	def build_model(self, _reset=None):
+	   # set reset to true to rebuild model regardless of date
+	def build_model(self, _reset=None, league=None, date='0'):
 		latest_date = ''
-		
 		try:
 			# try and grab from current directory
 			self.compound_events = pickle.load( open( "save.p", "rb" ) )
 			print "loading model"
 			if _reset:
-				self.compound_events["date"] = ""
+				self.compound_events={"date": ""}
 			# model has not been updated for today
 			if self.compound_events["date"] < datetime.today().strftime("%Y%m%d"):
 				latest_date = self.compound_events["date"]
@@ -95,11 +100,12 @@ class average_goals_calc:
 			print "building model"
 			# build model from games in time frame
 			for game in self.view:
-			    if 'home' in game['value'] and game["key"] > latest_date:
-			    	print game["key"]
-			        self.calc_xG(game["value"]['home']['scoring events'])
-			        cnt += len(game["value"]['home']['scoring events'])
-			        self.calc_xG(game["value"]['away']['scoring events'])
+				if 'home' in game['value'] and game["key"] > latest_date and game['value']['date'] > date:
+					if league and game['value']['league']!=league:
+						continue
+					self.calc_xG(game["value"]['home']['scoring events'])
+					cnt += len(game["value"]['home']['scoring events'])
+					self.calc_xG(game["value"]['away']['scoring events'])
 			self.compound_events["date"] = datetime.today().strftime("%Y%m%d")
 			_out = open("shot_data.txt", "w")
 			_out.write("Compound Events")
@@ -108,13 +114,15 @@ class average_goals_calc:
 			    _out.write(str(self.compound_events[key]))
 			    _out.write('\n\n')
 			_out.write(str(len(self.compound_events)))
+			_out.close()
+			print "It should have written to file"
 			pickle.dump( self.compound_events, open("save.p", "wb") )
 
 
 	def get_xG(self, events, b_dates, b_goals, b_probs, date):
 		_cur = 0
 		for thing in events["scoring events"]:
-			key = '-'.join(  item for item in thing[1:] if item  )
+			key = '-'.join(  item for item in thing[1:-1] if item  )
 			cur = self.compound_events[key]
 			_cur += float(cur[0]/float(cur[1]))
 		b_dates.append(datetime.strptime(str(date), "%Y%m%d"))
@@ -148,15 +156,17 @@ class average_goals_calc:
 
 	def graph_Xg_one_team(self, b_dates, b_goals, xG, team, _def=False):
 		averages = [np.mean(xG[:i]) for i in range(0,len(xG))]
-		trace1 = go.Bar(
+		trace1 = go.Scatter(
 	    x=b_dates,
 	    y=xG,
-	    name='Expected Goals'
+	    name='Expected Goals',
+	    mode='markers'
 		)
-		trace2 = go.Bar(
+		trace2 = go.Scatter(
 		    x=b_dates,
 		    y=b_goals,
-		    name='Actual Goals'
+		    name='Actual Goals',
+		    mode='markers'
 		)
 		trace3 = go.Scatter(
 		    x = b_dates,
@@ -222,48 +232,96 @@ class average_goals_calc:
 	#	 simulated match day, the oldest game is replaced with the current game
 	def simulate_league(self, num_sim, starting_stats, team_names, schedule, game_depth):
 		team_stats = { }
+		past_avg={}
+		team_scores = defaultdict(list)
 		for i in xrange(len(team_names)):
-			team_stats[team_names[i]] = deque(starting_stats[i], maxlen=game_depth)
-
+			team_stats[team_names[i]] = deque([np.mean(starting_stats[i])]*game_depth, maxlen=game_depth)
+			past_avg[team_names[i]] = np.mean(starting_stats[i])
 		sims = [  ]
-		
+		tmp1 = deepcopy(team_stats)
+		tmp2 = deepcopy(past_avg)
 		for i in xrange(num_sim):
 			table = defaultdict(int)
 			for game in schedule:
-				idx1 = random.poisson( np.mean(team_stats[game[0]] ) )
-				idx2 = random.poisson( np.mean(team_stats[game[1]] ) )
+				idx1 = self.model_game((team_stats[game[0]]+past_avg[game[0]])/2.0 , 5)
+				idx2 = self.model_game((team_stats[game[1]]+past_avg[game[1]])/2.0, 5)
 				team_stats[game[0]].append(idx1)
 				team_stats[game[1]].append(idx2)
 
-				if round(idx1, 1) == round(idx2, 1):
+				past_avg[game[0]] = (game_depth *past_avg[game[0]]+idx1)/(game_depth+1)
+				past_avg[game[1]] = (game_depth *past_avg[game[1]]+idx2)/(game_depth+1)
+
+				team_scores[game[0]].append(idx1)
+				team_scores[game[1]].append(idx2)
+				if round(idx1, 4) == round(idx2, 4):
 					table[game[0]] +=1
 					table[game[1]] +=1
-				if round(idx1, 1) > round(idx2, 1):
+				if round(idx1, 4) > round(idx2, 4):
 					table[game[0]] +=3
 				else:
 					table[game[1]] +=3
+			team_stats = deepcopy(tmp1)
+			past_avg = deepcopy(tmp2)
 			sims.append( table )
-
-
-		for sim in sims:
-			print sim
+		"""
+		for team in team_scores:
+			print team, " : "
+			print team_scores[team]
+			print past_avg[team]
 			print '\n\n'
+		"""
+		return sims
+
+
+	def model_game(self, probabilities, num_sim):
+		sim_sum = 0.0
+		for i in xrange(num_sim):
+			sim_sum += random.poisson( np.mean(probabilities) )
+		return sim_sum/num_sim
+
+	# Takes simulation output and averages each team's end of season scores over all the simulations
+	# sorts output before returning. simulation_output should be a list of dictionaries, where each
+	# index in the dictionary is a team and the value is their end of season score
+	def get_simulation_average_standings(self, simulation_output):
+		sim_out = defaultdict(float)
+		# number of simulations submitted, divide each season's tally by number of simulations
+		# to make averaging the data much easier
+		sim_ctr = len(simulation_output)
+		for sim in simulation_output:
+			standings = sorted(sim.items(), key=operator.itemgetter(1), reverse=True)
+			for rank in xrange(0, len(standings)):
+				sim_out[standings[rank][0]] += rank+1
+		for team in sim_out:
+			sim_out[team] = sim_out[team]/sim_ctr
+		return sorted(sim_out.items(), key=operator.itemgetter(1))
+			
 
 
 
+
+
+
+
+# End of average_goals_calc class.
 
 
 xG_calculator = average_goals_calc()
+date = "20150101"
 xG_calculator.build_model()
 
 
 teams = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 schedule_file = open("00082_UK_Football_Fixtures_2016-17_DedicatedExcel.csv", "r")
+schedule_file = csv.reader(schedule_file)
 schedule = []
-sch = csv.reader(schedule_file, delimiter=',')
-next(sch)
+'''
+sch = xlrd.open_workbook("00090_UK-Football-Fixtures-2017-18-by-Dedicated-Excel.xlsx")
+sch = sch.sheet_by_index(0)
 
-for game in sch:
+for rowx in range(sch.nrows)[1:]:
+	game = sch.row_values(rowx)
+'''
+for game in schedule_file:
 	if game[4] == "Man City":
 		game[4] = "Manchester City"
 	if game[5] == "Man City":
@@ -306,7 +364,11 @@ for game in sch:
 		game[4] = "Tottenham Hotspur"
 	if game[5] == "Tottenham":
 		game[5] = "Tottenham Hotspur"
-	if game[4] == '':
+	if game[4] == u'Brighton & Hove Albion':
+		game[4] = u'Brighton and Hove Albion'
+	if game[5] == u'Brighton & Hove Albion':
+		game[5] = u'Brighton and Hove Albion'
+	if game[0] != 'EPL':
 			break
 	
 	schedule.append((game[4], game[5]))
@@ -316,36 +378,52 @@ for game in sch:
 
 
 
-print schedule
-teams = list(teams)
 
+teams = list(teams)
+print teams
 xg_pleague = []
 _team=[]
 for t in teams:
-	print "xG for team::  ", t
-	d, g, xG = xG_calculator.calc_for_team( set([t]), "20160101", "20160930" )
+	d, g, xG = xG_calculator.calc_for_team( set([t]), "20170805", "20171101", )
 	if len(xG) == 0 or len(g) == 0:
 		continue
-	xg_pleague.append( (g+xG)/2.0 )
+	if t == "Chelsea":
+		xg_pleague.append( (g+xG)/2.0 )
+	else:
+		xg_pleague.append( (g+xG)/2.0 )
+	print "xG for team::  ", t, " :  ", np.mean(xG), "  :  ", np.mean(g), "  :  ", (np.mean(g)+np.mean(xG))*.5
+	#xg_pleague.append(g)
 	_team.append(t)
 
 
-print _team
-xG_calculator.simulate_league(20, xg_pleague, _team, schedule, 10)
+sims_f = open('fixture_sims.txt', "w")
+sims_f.write( "Starting run of multiple simulations: " )
+for num_sim in [3,4,5,6]:#[ 3, 6, 10, 25, 50, 200, 900, 1500, 2500, 4000, 5000, 6000, 8000, 10000 ]:
+	sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n\n" )
+	#shuffle(schedule)
+	simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule, 4)
+	averages = xG_calculator.get_simulation_average_standings(simulation)
+	for tup in averages:
+		sims_f.write(tup[0])
+		sims_f.write(" : " + str(tup[1]) + "\n")
+	print "done with sim: ", num_sim
+
+	sims_f.write("\n\n\n")
+
+sims_f.close()
+
 
 """
-
-
-
 #b_dates, b_goals, b_xG = xG_calculator.calc_for_team(set(["FC Bayern Mnchen", "Bayern Munich"]), "20160901", "20170730", False)
 
 #bd_dates, bd_goals, bd_xG = xG_calculator.calc_for_team(set(["Borussia Dortmund"]), "20160901", "20170730", True)
-c_dates, c_goals, c_xG = xG_calculator.calc_for_team(set(["Chelsea"]), "20150901", "20160701")
-m_dates, m_goals, m_xG = xG_calculator.calc_for_team(set(["Manchester United"]), "20150901", "20160701")
-nc_dates, nc_goals, nc_xG = xG_calculator.calc_for_team(set(["Arsenal"]), "20150901", "20160701")
-lc_dates, lc_goals, lc_xG = xG_calculator.calc_for_team(set(["Manchester City"]), "20150901", "20160710")
-t_dates, t_goals, t_xG = xG_calculator.calc_for_team(set(["Tottenham", "Tottenham Hotspur"]), "20150901", "20160710")
-l_dates, l_goals, l_xG = xG_calculator.calc_for_team(set(["Liverpool"]), "20150901", "20160710")
+c_dates, c_goals, c_xG = xG_calculator.calc_for_team(set(["Chelsea"]), "20150901", "20160517")
+m_dates, m_goals, m_xG = xG_calculator.calc_for_team(set(["Manchester United"]), "20150901", "20160517")
+nc_dates, nc_goals, nc_xG = xG_calculator.calc_for_team(set(["Arsenal"]), "20150901", "20160517")
+lc_dates, lc_goals, lc_xG = xG_calculator.calc_for_team(set(["Manchester City"]), "20150901", "20160517")
+
+t_dates, t_goals, t_xG = xG_calculator.calc_for_team(set(["Tottenham", "Tottenham Hotspur"]), "20150901", "20160517")
+l_dates, l_goals, l_xG = xG_calculator.calc_for_team(set(["Liverpool"]), "20150901", "20160517")
 
 #o_dates, o_goals, b_o_xG = xG_calculator.calc_for_team(set(["FC Bayern Mnchen", "Bayern Munich"]), "20160901", 
 #	"20170730", True)
@@ -360,21 +438,26 @@ c_r_xG = xG_calculator.get_running_xG(c_xG)
 m_r_xG = xG_calculator.get_running_xG(m_xG)
 nc_r_xG = xG_calculator.get_running_xG(nc_xG)
 lc_r_xG = xG_calculator.get_running_xG(lc_xG)
+
 t_r_xG = xG_calculator.get_running_xG(t_xG)
 l_r_xG = xG_calculator.get_running_xG(l_xG)
 
-#xG_calculator.graph_Xg_one_team(b_dates, b_goals, b_xG, "Bayern Munich", b_o_xG )
+xG_calculator.graph_Xg_one_team(t_dates, t_goals, t_xG, "Tottenham")
 
 print nc_xG
 print lc_xG
-print nc_r_xG
-print lc_r_xG
+print m_xG
+print c_xG
+print t_xG
+print l_xG
 
 xG_calculator.graph_compare_one_stat_mult_team( [m_dates, nc_dates, c_dates, lc_dates, t_dates, l_dates],
 	[m_r_xG, nc_r_xG, c_r_xG, lc_r_xG, t_r_xG, l_r_xG], ["Manchester United","Arsenal", "Chelsea", "Manchester City",
 	"Tottenham Hotspur", "Liverpool"],
 	"2016 - 2017 Comparison of Premier League teams" )
 
+"""
+"""
 
 
 #xG_calculator.graph_Xg_one_team(b_dates, b_goals, b_xG, "Bayern Munich")
