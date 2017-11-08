@@ -1,0 +1,268 @@
+Starting run of multiple simulations with sim type: 0 ::: 
+
+
+Number of simulations on this round: 3
+Errors for simulation: 100
+
+
+Number of simulations on this round: 6
+Errors for simulation: 88
+
+
+Number of simulations on this round: 10
+Errors for simulation: 68
+
+
+Number of simulations on this round: 50
+Errors for simulation: 58
+
+
+Number of simulations on this round: 300
+Errors for simulation: 66
+
+
+Number of simulations on this round: 300
+Errors for simulation: 58
+
+
+Number of simulations on this round: 300
+Errors for simulation: 64
+
+
+Number of simulations on this round: 300
+Errors for simulation: 62
+
+
+Number of simulations on this round: 400
+Errors for simulation: 64
+
+
+Number of simulations on this round: 900
+Errors for simulation: 64
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 60
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 60
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 58
+
+
+Number of simulations on this round: 2000
+Errors for simulation: 66
+
+
+Starting run of multiple simulations with sim type: 1 ::: 
+
+
+Number of simulations on this round: 3
+Errors for simulation: 88
+
+
+Number of simulations on this round: 6
+Errors for simulation: 90
+
+
+Number of simulations on this round: 10
+Errors for simulation: 92
+
+
+Number of simulations on this round: 50
+Errors for simulation: 64
+
+
+Number of simulations on this round: 300
+Errors for simulation: 64
+
+
+Number of simulations on this round: 300
+Errors for simulation: 60
+
+
+Number of simulations on this round: 300
+Errors for simulation: 68
+
+
+Number of simulations on this round: 300
+Errors for simulation: 62
+
+
+Number of simulations on this round: 400
+Errors for simulation: 64
+
+
+Number of simulations on this round: 900
+Errors for simulation: 66
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 58
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 60
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 64
+
+
+Number of simulations on this round: 2000
+Errors for simulation: 62
+
+
+Starting run of multiple simulations with sim type: 2 ::: 
+
+
+Number of simulations on this round: 3
+Errors for simulation: 90
+
+
+Number of simulations on this round: 6
+Errors for simulation: 92
+
+
+Number of simulations on this round: 10
+Errors for simulation: 64
+
+
+Number of simulations on this round: 50
+Errors for simulation: 64
+
+
+Number of simulations on this round: 300
+Errors for simulation: 68
+
+
+Number of simulations on this round: 300
+Errors for simulation: 58
+
+
+Number of simulations on this round: 300
+Errors for simulation: 62
+
+
+Number of simulations on this round: 300
+Errors for simulation: 64
+
+
+Number of simulations on this round: 400
+Errors for simulation: 70
+
+
+Number of simulations on this round: 900
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 60
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 60
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 2000
+Errors for simulation: 60
+
+
+Starting run of multiple simulations with sim type: 3 ::: 
+
+
+Number of simulations on this round: 3
+Errors for simulation: 84
+
+
+Number of simulations on this round: 6
+Errors for simulation: 90
+
+
+Number of simulations on this round: 10
+Errors for simulation: 90
+
+
+Number of simulations on this round: 50
+Errors for simulation: 78
+
+
+Number of simulations on this round: 300
+Errors for simulation: 64
+
+
+Number of simulations on this round: 300
+Errors for simulation: 64
+
+
+Number of simulations on this round: 300
+Errors for simulation: 68
+
+
+Number of simulations on this round: 300
+Errors for simulation: 60
+
+
+Number of simulations on this round: 400
+Errors for simulation: 60
+
+
+Number of simulations on this round: 900
+Errors for simulation: 56
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 64
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 64
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 60
+
+
+Number of simulations on this round: 1500
+Errors for simulation: 62
+
+
+Number of simulations on this round: 2000
+Errors for simulation: 68
+
+

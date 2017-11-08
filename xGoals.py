@@ -57,7 +57,7 @@ class average_goals_calc:
 	            else:
 	                self.attmp[event[2]] = (cnt[0], cnt[1]+1)
 	                self.compound_events[event[2]] = (cnt[0], cnt[1]+1)
-	        '''
+	        
 	        if event[3]:
 	            condition_prob += '-' + event[3]
 	            cnt = self.assist[event[3]]
@@ -65,7 +65,7 @@ class average_goals_calc:
 	                self.assist[event[3]] = (cnt[0]+1, cnt[1]+1)
 	            else:
 	                self.assist[event[3]] = (cnt[0], cnt[1]+1)
-	        '''
+	        
 	        condition_prob = '-'.join(  item for item in event[1:] if item  )
 	        if condition_prob in self.compound_events:
 	            cnt = self.compound_events[condition_prob]
@@ -122,7 +122,7 @@ class average_goals_calc:
 	def get_xG(self, events, b_dates, b_goals, b_probs, date):
 		_cur = 0
 		for thing in events["scoring events"]:
-			key = '-'.join(  item for item in thing[1:-1] if item  )
+			key = '-'.join(  item for item in thing[1:] if item  )
 			cur = self.compound_events[key]
 			_cur += float(cur[0]/float(cur[1]))
 		b_dates.append(datetime.strptime(str(date), "%Y%m%d"))
@@ -238,13 +238,13 @@ class average_goals_calc:
 			team_stats[team_names[i]] = deque([np.mean(starting_stats[i])]*game_depth, maxlen=game_depth)
 			past_avg[team_names[i]] = np.mean(starting_stats[i])
 		sims = [  ]
-		tmp1 = deepcopy(team_stats)
-		tmp2 = deepcopy(past_avg)
+		orig_stats = deepcopy(team_stats)
+		avgs = deepcopy(past_avg)
 		for i in xrange(num_sim):
 			table = defaultdict(int)
 			for game in schedule:
-				idx1 = self.model_game((team_stats[game[0]]+past_avg[game[0]])/2.0 , 5)
-				idx2 = self.model_game((team_stats[game[1]]+past_avg[game[1]])/2.0, 5)
+				idx1 = self.model_game((team_stats[game[0]]+past_avg[game[0]])/2.0 , 1)
+				idx2 = self.model_game((team_stats[game[1]]+past_avg[game[1]])/2.0, 1)
 				team_stats[game[0]].append(idx1)
 				team_stats[game[1]].append(idx2)
 
@@ -260,16 +260,9 @@ class average_goals_calc:
 					table[game[0]] +=3
 				else:
 					table[game[1]] +=3
-			team_stats = deepcopy(tmp1)
-			past_avg = deepcopy(tmp2)
+			team_stats = deepcopy(orig_stats)
+			past_avg = deepcopy(avgs)
 			sims.append( table )
-		"""
-		for team in team_scores:
-			print team, " : "
-			print team_scores[team]
-			print past_avg[team]
-			print '\n\n'
-		"""
 		return sims
 
 
@@ -295,10 +288,26 @@ class average_goals_calc:
 			sim_out[team] = sim_out[team]/sim_ctr
 		return sorted(sim_out.items(), key=operator.itemgetter(1))
 			
+	def fixture_results(self, results):
+		f = open(results)
+		res = {}
+		cnt = 1
+		for team in f:
+			if team == 'AFC Bournemouth\n':
+				res['Bournemouth'] = cnt
+				cnt += 1
+			else:
+				res[team.strip()] = cnt
+				cnt += 1
+		return res
 
-
-
-
+	def get_error(self, true_results, sim_results):
+		standing = 1
+		error = 0
+		for team in sim_results:
+			error += abs(  true_results[team[0]] - standing )
+			standing += 1
+		return error
 
 
 
@@ -307,13 +316,15 @@ class average_goals_calc:
 
 xG_calculator = average_goals_calc()
 date = "20150101"
-xG_calculator.build_model()
+xG_calculator.build_model(_reset=True)
 
-
+res2016 = xG_calculator.fixture_results('2016_17_final_results.csv')
+print res2016
 teams = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 schedule_file = open("00082_UK_Football_Fixtures_2016-17_DedicatedExcel.csv", "r")
 schedule_file = csv.reader(schedule_file)
 schedule = []
+next(schedule_file)
 '''
 sch = xlrd.open_workbook("00090_UK-Football-Fixtures-2017-18-by-Dedicated-Excel.xlsx")
 sch = sch.sheet_by_index(0)
@@ -348,9 +359,9 @@ for game in schedule_file:
 		game[5] = "West Bromwich Albion"
 
 	if game[4] == "Hull":
-		game[4] = "Hull City"
+		game[4] = u"Hull City"
 	if game[5] == "Hull":
-		game[5] = "Hull City"
+		game[5] = u"Hull City"
 
 	if game[4] == "Leicester":
 		game[4] = "Leicester City"
@@ -370,7 +381,6 @@ for game in schedule_file:
 		game[5] = u'Brighton and Hove Albion'
 	if game[0] != 'EPL':
 			break
-	
 	schedule.append((game[4], game[5]))
 	teams.add(game[4])
 	teams.add(game[5])
@@ -380,37 +390,65 @@ for game in schedule_file:
 
 
 teams = list(teams)
-print teams
 xg_pleague = []
-_team=[]
-for t in teams:
-	d, g, xG = xG_calculator.calc_for_team( set([t]), "20170805", "20171101", )
-	if len(xG) == 0 or len(g) == 0:
-		continue
-	if t == "Chelsea":
-		xg_pleague.append( (g+xG)/2.0 )
-	else:
-		xg_pleague.append( (g+xG)/2.0 )
-	print "xG for team::  ", t, " :  ", np.mean(xG), "  :  ", np.mean(g), "  :  ", (np.mean(g)+np.mean(xG))*.5
-	#xg_pleague.append(g)
-	_team.append(t)
+with open('fixture_sims_depth.txt', "w") as sims_f:
+	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
+	for sim_type in [0, 1, 2, 3]:
+		_team=[]
+		for t in teams:
+			d, g, xG = xG_calculator.calc_for_team( set([t]), "20160805", "20161101", )
+			if len(xG) == 0 or len(g) == 0:
+				continue
+			if sim_type == 2:
+				xg_pleague.append( (g+xG)/2.0 )
+			if sim_type == 0 or sim_type == 3:
+				xg_pleague.append( (g) )
+			if sim_type == 1:
+				xg_pleague.append( (xG) )
+			print "xG for team::  ", t, " :  ", np.mean(xG), "  :  ", np.mean(g), "  :  ", (np.mean(g)+np.mean(xG))*.5
+			_team.append(t)
+		
+		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
+		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
+		for num_sim in [ 3, 6, 10, 50, 300, 300, 300, 300, 400, 900, 1500, 1500, 1500, 1500, 1500, 2000 ]:
+			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
+			if sim_type == 3:
+				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule, 5)
+			else:
+				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule, 10)
+			averages = xG_calculator.get_simulation_average_standings(simulation)
+			errors = xG_calculator.get_error(res2016, averages)
+			sims_f.write( "Errors for simulation: " + str(errors) )
+			print "DOne with sim w/ ", num_sim, " simulations of type: ", sim_type
+			sims_f.write("\n\n\n")
 
 
-sims_f = open('fixture_sims.txt', "w")
-sims_f.write( "Starting run of multiple simulations: " )
-for num_sim in [3,4,5,6]:#[ 3, 6, 10, 25, 50, 200, 900, 1500, 2500, 4000, 5000, 6000, 8000, 10000 ]:
-	sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n\n" )
-	#shuffle(schedule)
-	simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule, 4)
-	averages = xG_calculator.get_simulation_average_standings(simulation)
-	for tup in averages:
-		sims_f.write(tup[0])
-		sims_f.write(" : " + str(tup[1]) + "\n")
-	print "done with sim: ", num_sim
 
-	sims_f.write("\n\n\n")
 
-sims_f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 """

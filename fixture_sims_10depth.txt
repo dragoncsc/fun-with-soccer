@@ -1,0 +1,250 @@
+Starting run of multiple simulations: Number of simulations on this round: 3
+
+Tottenham Hotspur : 3.66666666667
+Hull City : 5.0
+Liverpool : 6.33333333333
+Crystal Palace : 6.66666666667
+Chelsea : 7.33333333333
+Stoke City : 8.0
+Arsenal : 8.33333333333
+Leicester City : 8.33333333333
+Manchester City : 9.66666666667
+Southampton : 10.6666666667
+Bournemouth : 11.0
+Everton : 11.0
+Swansea City : 11.3333333333
+Middlesbrough : 12.3333333333
+Burnley : 13.0
+West Bromwich Albion : 14.0
+West Ham United : 14.3333333333
+Manchester United : 15.0
+Watford : 16.0
+Sunderland : 18.0
+Errors for simulation: 94
+
+
+Number of simulations on this round: 6
+
+Arsenal : 4.0
+Liverpool : 4.16666666667
+Southampton : 7.5
+Manchester City : 7.66666666667
+Bournemouth : 7.66666666667
+Manchester United : 7.83333333333
+Everton : 9.16666666667
+Watford : 9.33333333333
+Tottenham Hotspur : 10.0
+Burnley : 10.1666666667
+Crystal Palace : 10.3333333333
+Chelsea : 10.6666666667
+West Bromwich Albion : 11.6666666667
+Swansea City : 12.0
+West Ham United : 13.8333333333
+Leicester City : 14.1666666667
+Stoke City : 14.5
+Sunderland : 14.5
+Middlesbrough : 15.3333333333
+Hull City : 15.5
+Errors for simulation: 72
+
+
+Number of simulations on this round: 10
+
+Manchester City : 5.4
+Tottenham Hotspur : 5.7
+Arsenal : 5.9
+Manchester United : 6.5
+Liverpool : 8.2
+Chelsea : 8.4
+Everton : 9.7
+Southampton : 9.8
+West Ham United : 9.9
+Leicester City : 9.9
+Swansea City : 10.7
+Bournemouth : 11.3
+Crystal Palace : 11.5
+Stoke City : 12.3
+Burnley : 12.3
+West Bromwich Albion : 12.7
+Watford : 14.1
+Sunderland : 14.4
+Middlesbrough : 15.2
+Hull City : 16.1
+Errors for simulation: 36
+
+
+Number of simulations on this round: 25
+
+Manchester City : 5.84
+Tottenham Hotspur : 6.08
+Arsenal : 6.68
+Manchester United : 7.08
+Liverpool : 7.76
+Chelsea : 8.84
+Everton : 9.88
+Southampton : 9.96
+Stoke City : 10.48
+Crystal Palace : 10.68
+Leicester City : 11.0
+West Ham United : 11.2
+Swansea City : 11.68
+Bournemouth : 12.24
+West Bromwich Albion : 12.36
+Burnley : 12.6
+Watford : 13.2
+Hull City : 13.48
+Middlesbrough : 14.04
+Sunderland : 14.92
+Errors for simulation: 34
+
+
+Number of simulations on this round: 50
+
+Arsenal : 6.24
+Liverpool : 6.68
+Chelsea : 6.68
+Manchester City : 6.82
+Tottenham Hotspur : 7.5
+Manchester United : 8.4
+Southampton : 10.04
+Crystal Palace : 10.6
+Everton : 10.64
+West Ham United : 11.26
+Swansea City : 11.62
+Leicester City : 12.0
+Bournemouth : 12.1
+Stoke City : 12.18
+Hull City : 12.22
+Burnley : 12.34
+Watford : 13.02
+West Bromwich Albion : 13.16
+Middlesbrough : 13.18
+Sunderland : 13.32
+Errors for simulation: 42
+
+
+Number of simulations on this round: 200
+
+Manchester City : 6.17
+Chelsea : 6.445
+Tottenham Hotspur : 6.77
+Arsenal : 6.96
+Liverpool : 7.31
+Manchester United : 8.655
+Everton : 9.63
+Bournemouth : 10.545
+Crystal Palace : 10.825
+West Ham United : 10.96
+Southampton : 11.095
+Leicester City : 11.17
+Stoke City : 11.605
+West Bromwich Albion : 12.085
+Swansea City : 12.205
+Hull City : 12.85
+Burnley : 12.98
+Watford : 13.715
+Middlesbrough : 13.96
+Sunderland : 14.065
+Errors for simulation: 24
+
+
+Number of simulations on this round: 300
+
+Manchester City : 5.79
+Arsenal : 6.55
+Liverpool : 6.70333333333
+Tottenham Hotspur : 6.72666666667
+Chelsea : 6.98333333333
+Manchester United : 8.93
+Everton : 9.87333333333
+Bournemouth : 10.59
+Crystal Palace : 10.88
+West Ham United : 11.3933333333
+Leicester City : 11.4466666667
+Southampton : 11.5733333333
+Swansea City : 11.88
+Stoke City : 11.9233333333
+West Bromwich Albion : 12.1233333333
+Watford : 12.6733333333
+Burnley : 12.7
+Hull City : 13.2566666667
+Middlesbrough : 13.59
+Sunderland : 14.4133333333
+Errors for simulation: 34
+
+
+Number of simulations on this round: 400
+
+Manchester City : 5.75
+Chelsea : 6.535
+Liverpool : 6.68
+Tottenham Hotspur : 6.8875
+Arsenal : 6.9675
+Manchester United : 9.1575
+Everton : 9.6375
+Bournemouth : 10.4075
+Crystal Palace : 10.9
+Southampton : 11.4875
+West Ham United : 11.64
+Stoke City : 11.6825
+Leicester City : 11.905
+Swansea City : 11.93
+West Bromwich Albion : 12.625
+Burnley : 12.8925
+Hull City : 13.0325
+Watford : 13.0375
+Sunderland : 13.0425
+Middlesbrough : 13.8025
+Errors for simulation: 26
+
+
+Number of simulations on this round: 900
+
+Manchester City : 6.11777777778
+Chelsea : 6.73777777778
+Arsenal : 6.77666666667
+Liverpool : 7.09666666667
+Tottenham Hotspur : 7.18555555556
+Manchester United : 8.19333333333
+Everton : 9.49333333333
+Bournemouth : 10.4
+Crystal Palace : 11.04
+Southampton : 11.0844444444
+West Ham United : 11.4555555556
+Leicester City : 11.5155555556
+Stoke City : 11.6511111111
+Swansea City : 12.1944444444
+West Bromwich Albion : 12.5733333333
+Watford : 12.8066666667
+Burnley : 12.8333333333
+Hull City : 13.0944444444
+Middlesbrough : 13.8722222222
+Sunderland : 13.8777777778
+Errors for simulation: 24
+
+
+Number of simulations on this round: 1500
+
+Manchester City : 5.91333333333
+Arsenal : 6.61666666667
+Chelsea : 6.63066666667
+Tottenham Hotspur : 7.01533333333
+Liverpool : 7.286
+Manchester United : 8.45066666667
+Everton : 9.79666666667
+Bournemouth : 10.5673333333
+Southampton : 10.8626666667
+Crystal Palace : 10.8933333333
+West Ham United : 11.322
+Leicester City : 11.5246666667
+Stoke City : 11.7426666667
+Swansea City : 12.0866666667
+West Bromwich Albion : 12.3573333333
+Burnley : 12.9286666667
+Watford : 13.1
+Hull City : 13.1033333333
+Middlesbrough : 13.86
+Sunderland : 13.942
+Errors for simulation: 22
+
+
