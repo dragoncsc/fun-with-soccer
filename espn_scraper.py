@@ -145,7 +145,8 @@ class Parser():
 
     def parse_game_events(self, url, path, date, league):
         print "Current URL:: ", url
-        _events = {"goal":defaultdict(list), "yellow card":defaultdict(list), "red card":defaultdict(list), "sub":defaultdict(list)}
+        _events = {"goal":defaultdict(list), "yellow card":defaultdict(list), 
+            "red card":defaultdict(list), "sub":defaultdict(list)}
         _scoring_event = defaultdict(list)
         gameId = url.split("?")[1]
         contents = self.pull_game_html(url, path, gameId)
@@ -227,7 +228,7 @@ class Parser():
 
 if __name__ == "__main__":
     parse = Parser()
-    parse.get_date_games( datetime.today(), datetime(2017, 10, 9))
+    parse.get_date_games( datetime.today(), datetime(2009, 10, 9))
 #parse.get_date_games( datetime(2017, 10, 11), datetime(2017, 10, 9))
 
 

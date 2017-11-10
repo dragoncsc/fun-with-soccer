@@ -1,0 +1,52 @@
+Starting run of multiple simulations with sim type: 0 ::: 
+
+
+Number of simulations on this round: 600
+Errors for simulation: 66
+
+
+Number of simulations on this round: 600
+Errors for simulation: 66
+
+
+avg:  66.0  | std:  0.0
+
+Starting run of multiple simulations with sim type: 1 ::: 
+
+
+Number of simulations on this round: 600
+Errors for simulation: 64
+
+
+Number of simulations on this round: 600
+Errors for simulation: 62
+
+
+avg:  63.0  | std:  1.0
+
+Starting run of multiple simulations with sim type: 2 ::: 
+
+
+Number of simulations on this round: 600
+Errors for simulation: 70
+
+
+Number of simulations on this round: 600
+Errors for simulation: 66
+
+
+avg:  68.0  | std:  2.0
+
+Starting run of multiple simulations with sim type: 3 ::: 
+
+
+Number of simulations on this round: 600
+Errors for simulation: 66
+
+
+Number of simulations on this round: 600
+Errors for simulation: 64
+
+
+avg:  65.0  | std:  1.0
+
