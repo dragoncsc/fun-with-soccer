@@ -320,7 +320,7 @@ xG_calculator.build_model(league="English Premier League")
 
 res2016 = xG_calculator.fixture_results('2016_17_final_results.csv')
 res2015 = xG_calculator.fixture_results('2015_2016_final_results.csv')
-
+res2014 = xG_calculator.fixture_results('res_14_15.txt')
 
 teams = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 schedule_file16 = open("00082_UK_Football_Fixtures_2016-17_DedicatedExcel.csv", "r")
@@ -329,8 +329,12 @@ schedule_file16 = csv.reader(schedule_file16)
 schedule_file15 = open("UK_Football_Fixtures_2015-16_DedicatedExcel.csv", "r")
 schedule_file15 = csv.reader(schedule_file15)
 
+schedule_file14 = csv.reader(open('epl_2014_2015_results.csv'))
+print schedule_file14
+print schedule_file15
 schedule16 = []
 schedule15 = []
+schedule14 = []
 
 '''
 sch = xlrd.open_workbook("00090_UK-Football-Fixtures-2017-18-by-Dedicated-Excel.xlsx")
@@ -342,6 +346,8 @@ for rowx in range(sch.nrows)[1:]:
 def get_schedule(schedule_file, schedule, teams):
 	
 	for game in schedule_file:
+		print game[4]
+		print game[5]
 		if game[4] == "Man City":
 			game[4] = "Manchester City"
 		if game[5] == "Man City":
@@ -376,6 +382,26 @@ def get_schedule(schedule_file, schedule, teams):
 			game[4] = "Norwich City"
 		if game[5] == "Norwich":
 			game[5] = "Norwich City"
+
+		if game[4] == "QPR":
+			game[4] = "Queens Park Rangers"
+		if game[5] == "QPR":
+			game[5] = "Queens Park Rangers"
+		if game[4] == "Man United":
+			game[4] = "Manchester United"
+		if game[5] == "Man United":
+			game[5] = "Manchester United"
+
+		if game[4] == "Man City":
+			game[4] = "Manchester City"
+		if game[5] == "Man City":
+			game[5] = "Manchester City"
+		
+		if game[4] == "Spurs":
+			game[4] = "Tottenham Hotspur"
+		if game[5] == "Spurs":
+			game[5] = "Tottenham Hotspur"
+		
 		if game[4] == "Hull":
 			game[4] = u"Hull City"
 		if game[5] == "Hull":
@@ -396,7 +422,7 @@ def get_schedule(schedule_file, schedule, teams):
 			game[4] = u'Brighton and Hove Albion'
 		if game[5] == u'Brighton & Hove Albion':
 			game[5] = u'Brighton and Hove Albion'
-		if game[0] != 'EPL':
+		if game[0] == 'EC' or game[4] == '':
 				break
 		schedule.append((game[4], game[5]))
 		teams.add(game[4])
@@ -408,6 +434,71 @@ def get_schedule(schedule_file, schedule, teams):
 
 
 print "About to start 2016 tests"
+
+
+
+
+
+
+
+
+
+
+# RUN tests for 2016/17 season
+team14 = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
+next(schedule_file14)
+get_schedule(schedule_file14, schedule14, team14)
+teams = list(team14)
+xg_pleague = []
+print schedule14
+print "starting 2014"
+with open('simulate2014.txt', "w") as sims_f:
+	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
+	for sim_type in [0, 1, 2, 3]:
+		err=[]
+		_team=[]
+		for t in teams:
+			d, g, xG = xG_calculator.calc_for_team( set([t]), "20140805", "20150101", )
+			if len(xG) == 0 or len(g) == 0:
+				continue
+			if sim_type == 2:
+				xg_pleague.append( (g+xG)/2.0 )
+			if sim_type == 0 or sim_type == 3:
+				xg_pleague.append( (g) )
+			if sim_type == 1:
+				xg_pleague.append( (xG) )
+			print "xG for team::  ", t, " :  ", np.mean(xG), "  :  ", np.mean(g), "  :  ", (np.mean(g)+np.mean(xG))*.5
+			_team.append(t)
+		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
+		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
+		for num_sim in [300,300,300,300,300]:
+			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
+			if sim_type == 3:
+				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule14, 10)
+			else:
+				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule14, 15)
+			averages = xG_calculator.get_simulation_average_standings(simulation)
+			errors = xG_calculator.get_error(res2014, averages)
+			sims_f.write( "Errors for simulation: " + str(errors) )
+			err.append(errors)
+			print "Done with sim w/ ", num_sim, " simulations of type: ", sim_type
+			sims_f.write("\n\n\n")
+		sims_f.write("avg:  " +str(np.mean(err)) +"  | std:  " + str(np.std(err))+"\n\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -425,7 +516,7 @@ with open('simulate2016.txt', "w") as sims_f:
 		err=[]
 		_team=[]
 		for t in teams:
-			d, g, xG = xG_calculator.calc_for_team( set([t]), "20160805", "20170301", )
+			d, g, xG = xG_calculator.calc_for_team( set([t]), "20160805", "20170101", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
 			if sim_type == 2:
@@ -438,7 +529,7 @@ with open('simulate2016.txt', "w") as sims_f:
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [ 600, 600, 600, 600]:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
+		for num_sim in [300,300,300,300,300]:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule16, 10)
@@ -479,7 +570,6 @@ with open('simulate2016.txt', "w") as sims_f:
 
 
 
-
 # RUN tests for 2015/16 season
 team15 = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 next(schedule_file15)
@@ -492,7 +582,7 @@ with open('simulate2015.txt', "w") as sims_f:
 		err=[]
 		_team=[]
 		for t in teams:
-			d, g, xG = xG_calculator.calc_for_team( set([t]), "20150805", "20160301", )
+			d, g, xG = xG_calculator.calc_for_team( set([t]), "20150805", "20160101", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
 			if sim_type == 2:
@@ -506,7 +596,7 @@ with open('simulate2015.txt', "w") as sims_f:
 		
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [ 600, 600 ,600, 600]:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
+		for num_sim in [ 300, 300 ,300, 300, 300]:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule15, 10)

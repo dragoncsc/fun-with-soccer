@@ -2,99 +2,99 @@ Starting run of multiple simulations with sim type: 0 :::
 
 
 Number of simulations on this round: 300
-Errors for simulation: 70
+Errors for simulation: 50
 
 
 Number of simulations on this round: 300
-Errors for simulation: 76
+Errors for simulation: 52
 
 
 Number of simulations on this round: 300
-Errors for simulation: 68
+Errors for simulation: 48
 
 
 Number of simulations on this round: 300
-Errors for simulation: 74
+Errors for simulation: 54
 
 
 Number of simulations on this round: 300
-Errors for simulation: 68
+Errors for simulation: 52
 
 
-avg:  71.2  | std:  3.24961536185
+avg:  51.2  | std:  2.03960780544
 
 Starting run of multiple simulations with sim type: 1 ::: 
 
 
 Number of simulations on this round: 300
-Errors for simulation: 74
+Errors for simulation: 50
 
 
 Number of simulations on this round: 300
-Errors for simulation: 72
+Errors for simulation: 60
 
 
 Number of simulations on this round: 300
-Errors for simulation: 70
+Errors for simulation: 50
 
 
 Number of simulations on this round: 300
-Errors for simulation: 74
+Errors for simulation: 56
 
 
 Number of simulations on this round: 300
-Errors for simulation: 72
+Errors for simulation: 50
 
 
-avg:  72.4  | std:  1.49666295471
+avg:  53.2  | std:  4.11825205639
 
 Starting run of multiple simulations with sim type: 2 ::: 
 
 
 Number of simulations on this round: 300
-Errors for simulation: 68
+Errors for simulation: 54
 
 
 Number of simulations on this round: 300
-Errors for simulation: 74
+Errors for simulation: 54
 
 
 Number of simulations on this round: 300
-Errors for simulation: 68
+Errors for simulation: 54
 
 
 Number of simulations on this round: 300
-Errors for simulation: 66
+Errors for simulation: 48
 
 
 Number of simulations on this round: 300
-Errors for simulation: 72
+Errors for simulation: 54
 
 
-avg:  69.6  | std:  2.93938769134
+avg:  52.8  | std:  2.4
 
 Starting run of multiple simulations with sim type: 3 ::: 
 
 
 Number of simulations on this round: 300
-Errors for simulation: 78
+Errors for simulation: 52
 
 
 Number of simulations on this round: 300
-Errors for simulation: 70
+Errors for simulation: 56
 
 
 Number of simulations on this round: 300
-Errors for simulation: 68
+Errors for simulation: 48
 
 
 Number of simulations on this round: 300
-Errors for simulation: 66
+Errors for simulation: 46
 
 
 Number of simulations on this round: 300
-Errors for simulation: 70
+Errors for simulation: 52
 
 
-avg:  70.4  | std:  4.07921561087
+avg:  50.8  | std:  3.48711915483
 

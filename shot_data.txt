@@ -44,8 +44,6 @@ outside the box-right footed shot-corner(67, 1230)
 
 outside the box-header(7, 247)
 
-centre of the box-header-direct free kick(0, 9)
-
 centre of the box-left footed shot-through ball(891, 2593)
 
 penalty(4030, 4973)
@@ -196,8 +194,6 @@ outside the box-right footed shot-through ball(204, 848)
 
 left side-header-headed pass(1, 16)
 
-right side of the six yard box-left footed shot-direct free kick(0, 1)
-
 right side of the six yard box-right footed shot(489, 1841)
 
 left side of the six yard box-header-direct free kick(0, 1)
@@ -214,7 +210,7 @@ right side-header-cross(17, 1126)
 
 fast break(5, 5)
 
-right side-left footed shot(356, 7760)
+right side of the six yard box-left footed shot-direct free kick(0, 1)
 
 left side of the six yard box-right footed shot-corner(13, 49)
 
@@ -258,7 +254,7 @@ left side-left footed shot-through ball(411, 2592)
 
 left side-right footed shot-direct free kick(1, 5)
 
-left side-header-cross(26, 1223)
+centre of the box-header-direct free kick(0, 9)
 
 right side-right footed shot-corner(21, 177)
 
@@ -288,6 +284,8 @@ left side of the six yard box-left footed shot-headed pass(30, 138)
 
 outside the box-right footed shot-headed pass(119, 3794)
 
+left side-header-cross(26, 1223)
+
 very close range(7358, 14741)
 
 left side-right footed shot-headed pass(27, 493)
@@ -306,7 +304,7 @@ centre of the box-right footed shot-headed pass(469, 3050)
 
 left side-header-corner(1, 9)
 
-left side-left footed shot-cross(67, 1465)
+right side-left footed shot(356, 7760)
 
 long range-right footed shot-through ball(4, 24)
 
@@ -370,9 +368,11 @@ left side of the six yard box-header-through ball(2, 5)
 
 penalty-right footed shot(3149, 3896)
 
-date20171109
+date20171111
 
 left footed shot-through ball(80, 568)
+
+left side-left footed shot-cross(67, 1465)
 
 left side of the six yard box-right footed shot(226, 953)
 
