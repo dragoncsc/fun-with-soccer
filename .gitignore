@@ -1,6 +1,6 @@
 
 
-
+*.gz
 *.p
 *.html
 data/
