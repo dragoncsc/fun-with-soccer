@@ -57,7 +57,7 @@ class average_goals_calc:
 	            else:
 	                self.attmp[event[2]] = (cnt[0], cnt[1]+1)
 	                self.compound_events[event[2]] = (cnt[0], cnt[1]+1)
-	        '''
+	        
 	        if event[3]:
 	            condition_prob += '-' + event[3]
 	            cnt = self.assist[event[3]]
@@ -65,7 +65,7 @@ class average_goals_calc:
 	                self.assist[event[3]] = (cnt[0]+1, cnt[1]+1)
 	            else:
 	                self.assist[event[3]] = (cnt[0], cnt[1]+1)
-	        '''
+	        
 	        condition_prob = '-'.join(  item for item in event[1:] if item  )
 	        if condition_prob in self.compound_events:
 	            cnt = self.compound_events[condition_prob]
@@ -81,7 +81,7 @@ class average_goals_calc:
 	    return
 
 	   # set reset to true to rebuild model regardless of date
-	def build_model(self, _reset=None, league=None, date='0'):
+	def build_model(self, _reset=None, league=None, date='20130101'):
 		latest_date = ''
 		try:
 			# try and grab from current directory
@@ -122,7 +122,7 @@ class average_goals_calc:
 	def get_xG(self, events, b_dates, b_goals, b_probs, date):
 		_cur = 0
 		for thing in events["scoring events"]:
-			key = '-'.join(  item for item in thing[1:-1] if item  )
+			key = '-'.join(  item for item in thing[1:] if item  )
 			cur = self.compound_events[key]
 			_cur += float(cur[0]/float(cur[1]))
 		b_dates.append(datetime.strptime(str(date), "%Y%m%d"))
@@ -243,8 +243,8 @@ class average_goals_calc:
 		for i in xrange(num_sim):
 			table = defaultdict(int)
 			for game in schedule:
-				idx1 = self.model_game((team_stats[game[0]]+past_avg[game[0]])/2.0 , 1)
-				idx2 = self.model_game((team_stats[game[1]]+past_avg[game[1]])/2.0, 1)
+				idx1 = self.model_game((team_stats[game[0]] + past_avg[game[0]])/2.0, 1)
+				idx2 = self.model_game((team_stats[game[1]] + past_avg[game[1]])/2.0, 1)
 				team_stats[game[0]].append(idx1)
 				team_stats[game[1]].append(idx2)
 
@@ -316,7 +316,7 @@ class average_goals_calc:
 
 xG_calculator = average_goals_calc()
 date = "20150101"
-xG_calculator.build_model(league="English Premier League")
+xG_calculator.build_model(_reset=True)
 
 res2016 = xG_calculator.fixture_results('2016_17_final_results.csv')
 res2015 = xG_calculator.fixture_results('2015_2016_final_results.csv')
@@ -330,8 +330,6 @@ schedule_file15 = open("UK_Football_Fixtures_2015-16_DedicatedExcel.csv", "r")
 schedule_file15 = csv.reader(schedule_file15)
 
 schedule_file14 = csv.reader(open('epl_2014_2015_results.csv'))
-print schedule_file14
-print schedule_file15
 schedule16 = []
 schedule15 = []
 schedule14 = []
@@ -346,8 +344,6 @@ for rowx in range(sch.nrows)[1:]:
 def get_schedule(schedule_file, schedule, teams):
 	
 	for game in schedule_file:
-		print game[4]
-		print game[5]
 		if game[4] == "Man City":
 			game[4] = "Manchester City"
 		if game[5] == "Man City":
@@ -450,15 +446,13 @@ next(schedule_file14)
 get_schedule(schedule_file14, schedule14, team14)
 teams = list(team14)
 xg_pleague = []
-print schedule14
-print "starting 2014"
 with open('simulate2014.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
 	for sim_type in [0, 1, 2, 3]:
 		err=[]
 		_team=[]
 		for t in teams:
-			d, g, xG = xG_calculator.calc_for_team( set([t]), "20140805", "20150101", )
+			d, g, xG = xG_calculator.calc_for_team( set([t]), "20140805", "20150301", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
 			if sim_type == 2:
@@ -471,7 +465,7 @@ with open('simulate2014.txt', "w") as sims_f:
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [300,300,300,300,300]:
+		for num_sim in [3000,3000,3000,3000,3000]:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule14, 10)
@@ -516,7 +510,7 @@ with open('simulate2016.txt', "w") as sims_f:
 		err=[]
 		_team=[]
 		for t in teams:
-			d, g, xG = xG_calculator.calc_for_team( set([t]), "20160805", "20170101", )
+			d, g, xG = xG_calculator.calc_for_team( set([t]), "20160805", "20170301", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
 			if sim_type == 2:
@@ -529,7 +523,7 @@ with open('simulate2016.txt', "w") as sims_f:
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [300,300,300,300,300]:
+		for num_sim in [3000,3000,3000,3000,3000]:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule16, 10)
@@ -582,7 +576,7 @@ with open('simulate2015.txt', "w") as sims_f:
 		err=[]
 		_team=[]
 		for t in teams:
-			d, g, xG = xG_calculator.calc_for_team( set([t]), "20150805", "20160101", )
+			d, g, xG = xG_calculator.calc_for_team( set([t]), "20150805", "20160301", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
 			if sim_type == 2:
@@ -596,7 +590,7 @@ with open('simulate2015.txt', "w") as sims_f:
 		
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [ 300, 300 ,300, 300, 300]:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
+		for num_sim in [3000,3000,3000,3000,3000]:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule15, 10)
