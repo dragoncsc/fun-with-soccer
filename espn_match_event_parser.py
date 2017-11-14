@@ -13,7 +13,6 @@ class ESPNMatchEventParser(MatchEventParser):
     # Vladimir Darida with a cross following a corner.
     @staticmethod
     def goal_event(time, event, curMatch):
-        #try:
         minute = ESPNMatchEventParser.get_game_minute(time)
         if "Own Goal by" in event:
             scorer = "Own Goal"
@@ -31,12 +30,7 @@ class ESPNMatchEventParser(MatchEventParser):
                 assist = get_regex_matches("Assisted by ([A-Za-z ]+)\.", event)
             return ("goal",[country, minute, [scorer, assist]])
         return ("goal",[country, minute, [scorer, None]])
-        '''
-        except Exception as e:
-            print "In goal"
-            print e
-            print event, '\n\n\n'
-        '''
+
 
     # Marek Suchy (Czech Republic) is shown the yellow card for a bad foul.
     # Josef Husbauer (Czech Republic) is shown the yellow card.

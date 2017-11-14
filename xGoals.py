@@ -11,6 +11,8 @@ import csv
 from random import shuffle
 from copy import deepcopy
 import xlrd
+import match_event_parser
+
 
 def is_goal(event):
     if event[0] == "Goal":
@@ -316,113 +318,24 @@ class average_goals_calc:
 
 xG_calculator = average_goals_calc()
 date = "20150101"
-xG_calculator.build_model(_reset=True)
+xG_calculator.build_model()
 
-res2016 = xG_calculator.fixture_results('2016_17_final_results.csv')
-res2015 = xG_calculator.fixture_results('2015_2016_final_results.csv')
-res2014 = xG_calculator.fixture_results('res_14_15.txt')
+res2016 = xG_calculator.fixture_results('input/2016_17_final_results.csv')
+res2015 = xG_calculator.fixture_results('input/2015_2016_final_results.csv')
+res2014 = xG_calculator.fixture_results('input/res_14_15.txt')
 
 teams = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
-schedule_file16 = open("00082_UK_Football_Fixtures_2016-17_DedicatedExcel.csv", "r")
+schedule_file16 = open("input/00082_UK_Football_Fixtures_2016-17_DedicatedExcel.csv", "r")
 schedule_file16 = csv.reader(schedule_file16)
 
-schedule_file15 = open("UK_Football_Fixtures_2015-16_DedicatedExcel.csv", "r")
+schedule_file15 = open("input/UK_Football_Fixtures_2015-16_DedicatedExcel.csv", "r")
 schedule_file15 = csv.reader(schedule_file15)
 
-schedule_file14 = csv.reader(open('epl_2014_2015_results.csv'))
+schedule_file14 = csv.reader(open('input/epl_2014_2015_results.csv'))
 schedule16 = []
 schedule15 = []
 schedule14 = []
 
-'''
-sch = xlrd.open_workbook("00090_UK-Football-Fixtures-2017-18-by-Dedicated-Excel.xlsx")
-sch = sch.sheet_by_index(0)
-
-for rowx in range(sch.nrows)[1:]:
-	game = sch.row_values(rowx)
-'''
-def get_schedule(schedule_file, schedule, teams):
-	
-	for game in schedule_file:
-		if game[4] == "Man City":
-			game[4] = "Manchester City"
-		if game[5] == "Man City":
-			game[5] = "Manchester City"
-
-		if game[4] == "Man Utd":
-			game[4] = "Manchester United"
-		if game[5] == "Man Utd":
-			game[5] = "Manchester United"
-
-		if game[4] == "Swansea":
-			game[4] = "Swansea City"
-		if game[5] == "Swansea":
-			game[5] = "Swansea City"
-
-		if game[4] == "West Ham":
-			game[4] = "West Ham United"
-		if game[5] == "West Ham":
-			game[5] = "West Ham United"
-
-		if game[4] == "West Brom":
-			game[4] = "West Bromwich Albion"
-		if game[5] == "West Brom":
-			game[5] = "West Bromwich Albion"
-
-		if game[4] == "Newcastle":
-			game[4] = "Newcastle United"
-		if game[5] == "Newcastle":
-			game[5] = "Newcastle United"
-
-		if game[4] == "Norwich":
-			game[4] = "Norwich City"
-		if game[5] == "Norwich":
-			game[5] = "Norwich City"
-
-		if game[4] == "QPR":
-			game[4] = "Queens Park Rangers"
-		if game[5] == "QPR":
-			game[5] = "Queens Park Rangers"
-		if game[4] == "Man United":
-			game[4] = "Manchester United"
-		if game[5] == "Man United":
-			game[5] = "Manchester United"
-
-		if game[4] == "Man City":
-			game[4] = "Manchester City"
-		if game[5] == "Man City":
-			game[5] = "Manchester City"
-		
-		if game[4] == "Spurs":
-			game[4] = "Tottenham Hotspur"
-		if game[5] == "Spurs":
-			game[5] = "Tottenham Hotspur"
-		
-		if game[4] == "Hull":
-			game[4] = u"Hull City"
-		if game[5] == "Hull":
-			game[5] = u"Hull City"
-		if game[4] == "Leicester":
-			game[4] = "Leicester City"
-		if game[5] == "Leicester":
-			game[5] = "Leicester City"
-		if game[4] == "Stoke":
-			game[4] = "Stoke City"
-		if game[5] == "Stoke":
-			game[5] = "Stoke City"
-		if game[4] == "Tottenham":
-			game[4] = "Tottenham Hotspur"
-		if game[5] == "Tottenham":
-			game[5] = "Tottenham Hotspur"
-		if game[4] == u'Brighton & Hove Albion':
-			game[4] = u'Brighton and Hove Albion'
-		if game[5] == u'Brighton & Hove Albion':
-			game[5] = u'Brighton and Hove Albion'
-		if game[0] == 'EC' or game[4] == '':
-				break
-		schedule.append((game[4], game[5]))
-		teams.add(game[4])
-		teams.add(game[5])
 
 
 
@@ -443,10 +356,10 @@ print "About to start 2016 tests"
 # RUN tests for 2016/17 season
 team14 = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 next(schedule_file14)
-get_schedule(schedule_file14, schedule14, team14)
+match_event_parser.get_schedule(schedule_file14, schedule14, team14)
 teams = list(team14)
 xg_pleague = []
-with open('simulate2014.txt', "w") as sims_f:
+with open('input/simulate2014.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
 	for sim_type in [0, 1, 2, 3]:
 		err=[]
@@ -465,7 +378,7 @@ with open('simulate2014.txt', "w") as sims_f:
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [3000,3000,3000,3000,3000]:
+		for num_sim in [30,30,30,30,30]:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule14, 10)
@@ -499,12 +412,12 @@ with open('simulate2014.txt', "w") as sims_f:
 # RUN tests for 2016/17 season
 team16 = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 next(schedule_file16)
-get_schedule(schedule_file16, schedule16, team16)
+match_event_parser.get_schedule(schedule_file16, schedule16, team16)
 teams = list(team16)
 xg_pleague = []
 
 print "starting 2016"
-with open('simulate2016.txt', "w") as sims_f:
+with open('input/simulate2016.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
 	for sim_type in [0, 1, 2, 3]:
 		err=[]
@@ -567,10 +480,10 @@ with open('simulate2016.txt', "w") as sims_f:
 # RUN tests for 2015/16 season
 team15 = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 next(schedule_file15)
-get_schedule(schedule_file15, schedule15, team15)
+match_event_parser.get_schedule(schedule_file15, schedule15, team15)
 teams = list(team15)
 xg_pleague = []
-with open('simulate2015.txt', "w") as sims_f:
+with open('input/simulate2015.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
 	for sim_type in [0, 1, 2, 3]:
 		err=[]

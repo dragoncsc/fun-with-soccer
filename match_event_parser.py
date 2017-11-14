@@ -36,6 +36,92 @@ def sub_text(to_sub, replace, text):
     return re.sub(regex, replace, text)
 
 
+def get_schedule(schedule_file, schedule, teams):
+    
+    for game in schedule_file:
+        if game[4] == "Man City":
+            game[4] = "Manchester City"
+        if game[5] == "Man City":
+            game[5] = "Manchester City"
+
+        if game[4] == "Man Utd":
+            game[4] = "Manchester United"
+        if game[5] == "Man Utd":
+            game[5] = "Manchester United"
+
+        if game[4] == "Swansea":
+            game[4] = "Swansea City"
+        if game[5] == "Swansea":
+            game[5] = "Swansea City"
+
+        if game[4] == "West Ham":
+            game[4] = "West Ham United"
+        if game[5] == "West Ham":
+            game[5] = "West Ham United"
+
+        if game[4] == "West Brom":
+            game[4] = "West Bromwich Albion"
+        if game[5] == "West Brom":
+            game[5] = "West Bromwich Albion"
+
+        if game[4] == "Newcastle":
+            game[4] = "Newcastle United"
+        if game[5] == "Newcastle":
+            game[5] = "Newcastle United"
+
+        if game[4] == "Norwich":
+            game[4] = "Norwich City"
+        if game[5] == "Norwich":
+            game[5] = "Norwich City"
+
+        if game[4] == "QPR":
+            game[4] = "Queens Park Rangers"
+        if game[5] == "QPR":
+            game[5] = "Queens Park Rangers"
+        if game[4] == "Man United":
+            game[4] = "Manchester United"
+        if game[5] == "Man United":
+            game[5] = "Manchester United"
+
+        if game[4] == "Man City":
+            game[4] = "Manchester City"
+        if game[5] == "Man City":
+            game[5] = "Manchester City"
+        
+        if game[4] == "Spurs":
+            game[4] = "Tottenham Hotspur"
+        if game[5] == "Spurs":
+            game[5] = "Tottenham Hotspur"
+        
+        if game[4] == "Hull":
+            game[4] = u"Hull City"
+        if game[5] == "Hull":
+            game[5] = u"Hull City"
+        if game[4] == "Leicester":
+            game[4] = "Leicester City"
+        if game[5] == "Leicester":
+            game[5] = "Leicester City"
+        if game[4] == "Stoke":
+            game[4] = "Stoke City"
+        if game[5] == "Stoke":
+            game[5] = "Stoke City"
+        if game[4] == "Tottenham":
+            game[4] = "Tottenham Hotspur"
+        if game[5] == "Tottenham":
+            game[5] = "Tottenham Hotspur"
+        if game[4] == u'Brighton & Hove Albion':
+            game[4] = u'Brighton and Hove Albion'
+        if game[5] == u'Brighton & Hove Albion':
+            game[5] = u'Brighton and Hove Albion'
+        if game[0] == 'EC' or game[4] == '':
+                break
+        schedule.append((game[4], game[5]))
+        teams.add(game[4])
+        teams.add(game[5])
+
+
+
+
 
 
 class MatchEventParser():
