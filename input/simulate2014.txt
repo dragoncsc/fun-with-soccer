@@ -1,0 +1,100 @@
+Starting run of multiple simulations with sim type: 0 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 52
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 56
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 50
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 52
+
+
+avg:  50.8  | std:  3.91918358845
+
+Starting run of multiple simulations with sim type: 1 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 54
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 54
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 54
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 50
+
+
+avg:  51.6  | std:  3.2
+
+Starting run of multiple simulations with sim type: 2 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 54
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 54
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 56
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 54
+
+
+avg:  52.8  | std:  3.48711915483
+
+Starting run of multiple simulations with sim type: 3 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 54
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 50
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 52
+
+
+Number of simulations on this round: 3000
+Errors for simulation: 56
+
+
+avg:  52.0  | std:  2.82842712475
+

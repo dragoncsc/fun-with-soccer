@@ -68,7 +68,7 @@ class average_goals_calc:
 	            else:
 	                self.assist[event[3]] = (cnt[0], cnt[1]+1)
 	        
-	        condition_prob = '-'.join(  item for item in event[1:] if item  )
+	        condition_prob = '-'.join(  item for item in event[1:-1] if item  )
 	        if condition_prob in self.compound_events:
 	            cnt = self.compound_events[condition_prob]
 	            if is_goal(event):
@@ -124,7 +124,7 @@ class average_goals_calc:
 	def get_xG(self, events, b_dates, b_goals, b_probs, date):
 		_cur = 0
 		for thing in events["scoring events"]:
-			key = '-'.join(  item for item in thing[1:] if item  )
+			key = '-'.join(  item for item in thing[1:-1] if item  )
 			cur = self.compound_events[key]
 			_cur += float(cur[0]/float(cur[1]))
 		b_dates.append(datetime.strptime(str(date), "%Y%m%d"))
@@ -255,10 +255,10 @@ class average_goals_calc:
 
 				team_scores[game[0]].append(idx1)
 				team_scores[game[1]].append(idx2)
-				if round(idx1, 4) == round(idx2, 4):
+				if round(idx1, 2) == round(idx2, 2):
 					table[game[0]] +=1
 					table[game[1]] +=1
-				if round(idx1, 4) > round(idx2, 4):
+				if round(idx1, 2) > round(idx2, 2):
 					table[game[0]] +=3
 				else:
 					table[game[1]] +=3
@@ -318,7 +318,7 @@ class average_goals_calc:
 
 xG_calculator = average_goals_calc()
 date = "20150101"
-xG_calculator.build_model()
+xG_calculator.build_model(_reset=True)
 
 res2016 = xG_calculator.fixture_results('input/2016_17_final_results.csv')
 res2015 = xG_calculator.fixture_results('input/2015_2016_final_results.csv')
@@ -359,7 +359,7 @@ next(schedule_file14)
 match_event_parser.get_schedule(schedule_file14, schedule14, team14)
 teams = list(team14)
 xg_pleague = []
-with open('input/simulate2014.txt', "w") as sims_f:
+with open('output/simulate2014.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
 	for sim_type in [0, 1, 2, 3]:
 		err=[]
@@ -378,7 +378,7 @@ with open('input/simulate2014.txt', "w") as sims_f:
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [30,30,30,30,30]:
+		for num_sim in [100]*30:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule14, 10)
@@ -417,7 +417,7 @@ teams = list(team16)
 xg_pleague = []
 
 print "starting 2016"
-with open('input/simulate2016.txt', "w") as sims_f:
+with open('output/simulate2016.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
 	for sim_type in [0, 1, 2, 3]:
 		err=[]
@@ -436,7 +436,7 @@ with open('input/simulate2016.txt', "w") as sims_f:
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [3000,3000,3000,3000,3000]:
+		for num_sim in [100]*30:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule16, 10)
@@ -483,7 +483,7 @@ next(schedule_file15)
 match_event_parser.get_schedule(schedule_file15, schedule15, team15)
 teams = list(team15)
 xg_pleague = []
-with open('input/simulate2015.txt', "w") as sims_f:
+with open('output/simulate2015.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
 	for sim_type in [0, 1, 2, 3]:
 		err=[]
@@ -503,7 +503,7 @@ with open('input/simulate2015.txt', "w") as sims_f:
 		
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [3000,3000,3000,3000,3000]:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
+		for num_sim in [100]*30:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
 			if sim_type == 3:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule15, 10)

@@ -1,12 +1,20 @@
 import re
 from match_event_parser import *
 import nltk
-from nltk.tokenize import sent_tokenize
+from difflib import SequenceMatcher
 
 
 
 
 class ESPNMatchEventParser(MatchEventParser):
+
+    def __init__(self):
+        self.stuff = ["Own Goal", "Goal", "Attempt missed", "Attempt blocked", "Attempt saved", "Penalty saved"]
+        self.poss = ["right side of the six yard box", "left side of the six yard box", 
+                "outside the box", "right side", "centre of the box", "left side", "long range", 
+               "six yard box", "very close range", "penalty"]
+        self.attmp = ["left footed shot", "right footed shot", "header"]
+        self.assist = ["headed pass", "through ball", "cross", "corner", "fast break", "direct free kick"]        
    
     # Goal!  Azerbaijan 1, Czech Republic 2. Antonin Barak (Czech Republic)
     # header from the centre of the box to the top right corner. Assisted by
@@ -99,42 +107,42 @@ class ESPNMatchEventParser(MatchEventParser):
             event_t = get_type(event)(time, event)
             _events[event_t[0]] = event_t[1]
 
-    @staticmethod
-    def get_event( mess):
-        team = get_regex_matches("\(([A-Za-z0-9 ]+)\)", mess)
-        mess = sent_tokenize(mess.decode("utf-8", "ignore"))
-        stuff = ["Own Goal", "Goal", "Attempt missed", "Attempt blocked", "Attempt saved", "Penalty saved"]
-        poss = ["right side of the six yard box", "left side of the six yard box", 
-                "outside the box", "right side", "centre of the box", "left side", "long range", 
-               "six yard box", "very close range", "penalty"]
-        attmp = ["left footed shot", "right footed shot", "header"]
-        assist = ["headed pass", "through ball", "cross", "corner", "fast break", "direct free kick"]
-        final = [None, None, None, None, team]
+    def clean_teams(self, lineups, curMatch):
+        teams = lineups.keys()
+        if SequenceMatcher(curMatch.home[0], teams[0]).ratio() \
+            > SequenceMatcher(curMatch.home[0], teams[1]).ratio():
+            lineups[curMatch.home[0]] = lineups[teams[0]]
+            lineups[curMatch.away[0]] = lineups[teams[1]]
+        else:
+            lineups[curMatch.home[0]] = lineups[teams[1]]
+            lineups[curMatch.away[0]] = lineups[teams[0]]
+
+    
+    def get_event(self, mess):
+        team = get_regex_matches("\(([A-Za-z0-9 .]+)\)", mess)
+        if type(team)!= str:
+            # some games' commentaries are just really messed up and there's nothing to do. 
+            # for example, november 3rd 2011 CSK Moscow game
+            return [None]
+        player = get_regex_matches( "\. ([a-zA-Z0-9 ]+) \(", mess)
+        final = [None, None, None, None, player, team]
         cntr = 0
-        for s in stuff:
-            if s in mess[cntr]:
+        for s in self.stuff:
+            if s in mess:
                 final[0] = s
                 break
-        if final[0] == "Goal":
-            cntr += 1
-        cntr+=1
-        if len(mess) < (1+cntr):
-            return final
-        for p in poss:
-            if p in mess[cntr]:
+        for p in self.poss:
+            if p in mess:
                 final[1] = p
                 break
         if final[0] == "Penalty saved":
             final[1] = "penalty"
-        for a in attmp:
-            if a in mess[cntr]:
+        for a in self.attmp:
+            if a in mess:
                 final[2] = a
                 break
-        cntr+=1
-        if len(mess) < (1+cntr):
-            return final
-        for a in assist:
-            if a in mess[cntr]:
+        for a in self.assist:
+            if a in mess:
                 final[3] = a
                 return final
         return final

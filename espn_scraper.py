@@ -101,11 +101,10 @@ class Parser():
                                 self.parse_game_events(sub_text("report", "commentary", k["href"]),
                                     path, curDate, curLeague)
                     curLeage = "NoLeagueCaught"
-                except Exception as e:
-                    print "Could not catch league ID, skipping this league"
+                except (urllib2.HTTPError, KeyError) as e:
                     print str(e)
+                    print "Internal server error or could not league keys"
                     continue
-
 
 
     def ensure_directories(self, date, league):
@@ -116,7 +115,6 @@ class Parser():
             os.makedirs(path)
             return path
         return path
-
 
 
     def pull_game_html(self, url, path, gameId ):
@@ -149,13 +147,15 @@ class Parser():
         try:
             _file = open(''.join([path,gameId,"lineup.txt"]), 'r')
             contents = _file.read()
-        except:
+        except IOError:
             url = ''.join(['http://www.espnfc.us/lineups?',gameId])
             req = urllib2.Request(url, headers=self.headers)
             contents = urllib2.urlopen(req).read().decode('ascii', 'ignore')
             _file = open(''.join([path,gameId,"lineup.txt"]), "w" )
             _file.write(contents)
             _file.close()
+        #finally:
+        #    return None
         game = BeautifulSoup(contents, 'html.parser')
         lineups = {}
         for team in game.find_all("div", { "class" : "content-tab" }):
@@ -165,11 +165,8 @@ class Parser():
                 cur = player.find_all('span', {'class':'name'})[1]
                 if cur != None:
                     lineups[cur_team].append(cur.find_all(text=True)[1].encode("ascii", errors="ignore").strip())
-        for i in lineups:
-            print lineups[i]
 
         return lineups
-
 
     def parse_game_events(self, url, path, date, league):
         print "Current URL:: ", url
@@ -179,7 +176,8 @@ class Parser():
         gameId = url.split("?")[1]
         contents = self.pull_game_html(url, path, gameId)
         lineups = self.get_line_ups(gameId, path)
-        if not contents or (self.scrape_only and self.game_exists(gameId)):
+        print lineups
+        if not contents or (self.scrape_only and self.game_exists(gameId)) or not lineups:
             return
         self.espn = BeautifulSoup(contents, 'html.parser')
         curMatch = Match(date, league)
@@ -202,6 +200,7 @@ class Parser():
             print "---------- failed parsing score, skipping --------\n\n"
             return
         print curMatch.home, "  ", curMatch.away, " TEAMS-------------------------\n\n"
+        self.espnParser.clean_teams(lineups, curMatch)
         for events in lines:
             event = events.find_all('td')
             # if there was a goal attempt, get information for xG
@@ -256,7 +255,7 @@ class Parser():
 
 if __name__ == "__main__":
     parse = Parser()
-    parse.get_date_games( datetime.today(), datetime(2009, 10, 9))
+    parse.get_date_games( datetime(2011,11, 3), datetime(2005, 10, 9) )#datetime.today(),
 #parse.get_date_games( datetime(2017, 10, 11), datetime(2017, 10, 9))
 
 

@@ -1,0 +1,340 @@
+Starting run of multiple simulations with sim type: 0 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+avg:  49.8  | std:  2.67581763205
+
+Starting run of multiple simulations with sim type: 1 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 56
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+avg:  49.7  | std:  3.53694783677
+
+Starting run of multiple simulations with sim type: 2 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 56
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+avg:  48.9  | std:  3.65923489271
+
+Starting run of multiple simulations with sim type: 3 ::: 
+
+
+Number of simulations on this round: 30
+Errors for simulation: 60
+
+
+Number of simulations on this round: 30
+Errors for simulation: 42
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 56
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 54
+
+
+Number of simulations on this round: 30
+Errors for simulation: 42
+
+
+Number of simulations on this round: 30
+Errors for simulation: 58
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 44
+
+
+Number of simulations on this round: 30
+Errors for simulation: 52
+
+
+Number of simulations on this round: 30
+Errors for simulation: 56
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+Number of simulations on this round: 30
+Errors for simulation: 48
+
+
+Number of simulations on this round: 30
+Errors for simulation: 46
+
+
+Number of simulations on this round: 30
+Errors for simulation: 50
+
+
+avg:  50.1  | std:  4.95883050729
+

@@ -1,299 +1,299 @@
 (dp0
 S''
 p1
-(I512
-I514
+(I293
+I297
 tp2
 sVleft side-cross
 p3
 (I0
-I3
+I2
 tp4
 sVpenalty-left footed shot
 p5
-(I504
-I619
+(I252
+I300
 tp6
 sVleft footed shot-headed pass
 p7
 (I4
-I100
+I69
 tp8
 sVright side-left footed shot-headed pass
 p9
-(I4
-I134
+(I2
+I94
 tp10
 sVlong range-left footed shot-through ball
 p11
 (I0
-I3
+I2
 tp12
-sVright side-header-corner
+sVright side-right footed shot-fast break
 p13
-(I1
-I8
+(I16
+I187
 tp14
-sVcross
+sVright side-header-corner
 p15
-(I0
-I6
+(I3
+I24
 tp16
-sVvery close range-corner
+sVcross
 p17
-(I10
-I10
+(I0
+I5
 tp18
-sVleft side-right footed shot-cross
+sVvery close range-corner
 p19
-(I21
-I486
+(I26
+I29
 tp20
-sVright side-right footed shot-through ball
+sVleft side-right footed shot-cross
 p21
-(I260
-I1245
+(I13
+I300
 tp22
-sVcentre of the box-left footed shot-fast break
+sVright side-right footed shot-through ball
 p23
-(I179
-I308
+(I170
+I785
 tp24
-sVleft side-right footed shot-through ball
+sVcentre of the box-left footed shot-fast break
 p25
-(I84
-I390
+(I41
+I136
 tp26
-sVcorner
+sVleft side-right footed shot-through ball
 p27
-(I318
-I318
+(I53
+I238
 tp28
 sVleft footed shot-cross
 p29
-(I13
-I208
+(I10
+I138
 tp30
 sVlong range-right footed shot-direct free kick
 p31
 (I0
-I2
+I157
 tp32
 sVright side-cross
 p33
 (I0
-I4
+I1
 tp34
 sVlong range-left footed shot-cross
 p35
 (I1
-I13
+I7
 tp36
 sVoutside the box-header-cross
 p37
 (I0
-I54
+I29
 tp38
 sVoutside the box-right footed shot-corner
 p39
-(I42
-I768
+(I1078
+I8552
 tp40
-sVright side of the six yard box-header-cross
+sVoutside the box-header
 p41
-(I187
-I1329
+(I0
+I125
 tp42
 sVcentre of the box-left footed shot-through ball
 p43
-(I417
-I1171
+(I265
+I766
 tp44
 sVpenalty
 p45
-(I2222
-I2755
+(I2289
+I2825
 tp46
 sVcentre of the box-left footed shot-corner
 p47
-(I45
-I169
+(I1289
+I2425
 tp48
 sVvery close range-header-cross
 p49
-(I738
-I2228
+(I507
+I1433
 tp50
 sVright side of the six yard box-header-corner
 p51
-(I3
-I21
+(I21
+I67
 tp52
 sVlong range
 p53
-(I97
-I3678
+(I103
+I3732
 tp54
 sVvery close range-left footed shot-through ball
 p55
-(I14
-I17
+(I5
+I7
 tp56
 sVlong range-right footed shot-headed pass
 p57
 (I0
-I59
+I37
 tp58
-sVleft side of the six yard box-header-corner
-p59
-(I8
-I35
-tp60
 sVcentre of the box-right footed shot-corner
-p61
-(I86
-I317
-tp62
+p59
+(I2094
+I3929
+tp60
 sVcentre of the box
-p63
-(I12291
-I81224
-tp64
+p61
+(I12670
+I82401
+tp62
 sVright side of the six yard box-left footed shot-headed pass
+p63
+(I4
+I13
+tp64
+sVleft footed shot-corner
 p65
-(I3
-I16
+(I239
+I580
 tp66
-sVright side of the six yard box-right footed shot-fast break
-p67
-(I13
-I21
-tp68
 sVright side of the six yard box-right footed shot-cross
-p69
-(I118
-I564
-tp70
+p67
+(I74
+I345
+tp68
 sVright side-left footed shot-fast break
-p71
-(I12
-I47
-tp72
+p69
+(I2
+I20
+tp70
 sVleft side of the six yard box-left footed shot-fast break
-p73
-(I9
-I16
-tp74
+p71
+(I3
+I10
+tp72
 sVleft side-header-through ball
-p75
-(I0
-I3
-tp76
+p73
+g34
 sVleft side of the six yard box-left footed shot-cross
-p77
-(I78
-I334
-tp78
+p74
+(I57
+I237
+tp75
 sVoutside the box-left footed shot-through ball
-p79
-(I37
-I135
-tp80
+p76
+(I24
+I80
+tp77
 sVlong range-right footed shot-through ball
-p81
+p78
 (I2
-I8
-tp82
+I6
+tp79
 sVlong range-right footed shot-fast break
-p83
-(I2
-I18
-tp84
-sVright side-left footed shot
-p85
-(I231
-I4643
-tp86
-sVleft side of the six yard box-right footed shot-headed pass
-p87
-(I13
-I50
-tp88
-sVoutside the box-left footed shot-headed pass
-p89
-(I33
-I1080
-tp90
-sVoutside the box-through ball
-p91
+p80
 (I0
-I1
-tp92
-sVleft footed shot
-p93
-(I7951
-I82386
-tp94
-sVvery close range-right footed shot-corner
-p95
-(I105
-I126
-tp96
+I9
+tp81
+sVright side-left footed shot
+p82
+(I111
+I4210
+tp83
 sVright footed shot-direct free kick
-p97
-g92
+p84
+(I0
+I70
+tp85
+sVcentre of the box-right footed shot-through ball
+p86
+(I546
+I1430
+tp87
+sVoutside the box-through ball
+p88
+g34
+sVright side of the six yard box-cross
+p89
+(I0
+I19
+tp90
+sVleft footed shot
+p91
+(I8175
+I83199
+tp92
+sVvery close range-right footed shot-corner
+p93
+(I555
+I647
+tp94
+sVleft side of the six yard box-right footed shot-headed pass
+p95
+(I8
+I32
+tp96
 sVlong range-left footed shot-direct free kick
-p98
-g92
+p97
+(I0
+I74
+tp98
 sVvery close range-left footed shot
 p99
-(I689
-I1125
+(I558
+I1040
 tp100
 sVleft side of the six yard box-header
 p101
-(I52
-I258
+(I107
+I705
 tp102
 sVcentre of the box-corner
 p103
-(I3
-I6
+(I16
+I28
 tp104
 sVleft side-header
 p105
-(I10
-I232
+(I7
+I425
 tp106
 sVoutside the box-left footed shot-corner
 p107
-(I15
-I361
+(I592
+I4963
 tp108
 sVleft side of the six yard box-right footed shot-cross
 p109
-(I48
-I318
+(I31
+I206
 tp110
 sVright side of the six yard box-left footed shot-fast break
 p111
 (I1
-I3
+I2
 tp112
 sVright side-header
 p113
 (I6
-I199
+I416
 tp114
-sVcentre of the box-right footed shot-through ball
+sVoutside the box-left footed shot-headed pass
 p115
-(I814
-I2205
+(I26
+I687
 tp116
 sVcentre of the box-cross
 p117
-(I36
-I326
+(I27
+I237
 tp118
 sVright side of the six yard box-headed pass
 p119
@@ -302,647 +302,628 @@ I1
 tp120
 sVvery close range-left footed shot-corner
 p121
-(I56
-I65
+(I306
+I369
 tp122
 sVright side of the six yard box-right footed shot-headed pass
 p123
-(I24
-I100
+(I16
+I65
 tp124
 sVright side-left footed shot-corner
 p125
-(I8
-I86
+(I159
+I751
 tp126
 sVleft footed shot-fast break
 p127
-(I11
-I41
+(I6
+I27
 tp128
 sVoutside the box
 p129
-(I2937
-I106558
+(I3027
+I107684
 tp130
 sVheader-corner
 p131
 (I0
-I2
+I17
 tp132
-sVleft side of the six yard box-header-fast break
-p133
-(I0
-I3
-tp134
 sVcentre of the box-through ball
-p135
-g92
+p133
+g34
 sVleft side-left footed shot-headed pass
-p136
-(I23
-I395
-tp137
+p134
+(I15
+I254
+tp135
 sVcentre of the box-right footed shot-cross
-p138
-(I801
-I5704
-tp139
+p136
+(I521
+I3685
+tp137
 sVleft side-right footed shot-corner
+p138
+(I303
+I1387
+tp139
+sVleft side of the six yard box-header-corner
 p140
-(I12
-I115
-tp141
-sVright side of the six yard box-cross
-p142
-(I0
-I25
-tp143
-sVleft side-right footed shot-fast break
-p144
-(I37
-I128
-tp145
-sVoutside the box-right footed shot-direct free kick
-p146
-(I0
-I112
-tp147
-sVcentre of the box-left footed shot-headed pass
-p148
-(I125
-I869
-tp149
-sVright footed shot
-p150
-(I14560
-I137469
-tp151
-sVleft side-right footed shot
-p152
-(I427
-I8191
-tp153
-sVright side of the six yard box-right footed shot-through ball
-p154
-(I43
-I105
-tp155
-sVcentre of the box-header-cross
-p156
-(I2446
-I27632
-tp157
-sVright side of the six yard box-header-fast break
-p158
-(I0
-I2
-tp159
-sVright side of the six yard box-left footed shot
-p160
-(I62
-I272
-tp161
-sVleft footed shot-direct free kick
-p162
-g92
-sVright side of the six yard box-header
-p163
 (I33
-I210
-tp164
+I104
+tp141
+sVleft side-right footed shot-fast break
+p142
+(I3
+I59
+tp143
+sVoutside the box-right footed shot-direct free kick
+p144
+(I0
+I1584
+tp145
+sVcentre of the box-left footed shot-headed pass
+p146
+(I83
+I574
+tp147
+sVright footed shot
+p148
+(I14996
+I139383
+tp149
+sVleft side-right footed shot
+p150
+(I230
+I7514
+tp151
+sVright side of the six yard box-right footed shot-through ball
+p152
+(I29
+I71
+tp153
+sVcentre of the box-header-cross
+p154
+(I1651
+I18513
+tp155
+sVright side of the six yard box-header-fast break
+p156
+g34
+sVright side of the six yard box-left footed shot
+p157
+(I41
+I269
+tp158
+sVleft footed shot-direct free kick
+p159
+(I0
+I37
+tp160
+sVright side of the six yard box-header
+p161
+(I102
+I674
+tp162
 sVleft side of the six yard box-right footed shot-through ball
-p165
-(I9
-I36
-tp166
+p163
+(I8
+I25
+tp164
 sVvery close range-cross
-p167
-(I26
-I76
-tp168
+p165
+(I14
+I50
+tp166
 sVleft side of the six yard box-left footed shot-corner
-p169
-(I12
-I28
-tp170
+p167
+(I126
+I231
+tp168
 sVcentre of the box-header-fast break
+p169
+(I1
+I14
+tp170
+sVpenalty-left footed shot-corner
 p171
-(I7
-I21
+(I263
+I330
 tp172
 sVcentre of the box-left footed shot
 p173
-(I2198
-I12674
+(I1509
+I12521
 tp174
 sVright side of the six yard box
 p175
-(I818
-I3984
+(I844
+I4035
 tp176
 sVoutside the box-header-corner
 p177
-g92
+(I0
+I24
+tp178
 sVoutside the box-right footed shot-through ball
-p178
-(I75
-I298
-tp179
+p179
+(I55
+I200
+tp180
 sVleft side-header-headed pass
-p180
-(I0
-I4
-tp181
-sVoutside the box-header
-p182
-(I0
-I117
-tp183
+p181
+g34
 sVright side of the six yard box-right footed shot
-p184
-(I275
-I1084
-tp185
+p182
+(I231
+I1155
+tp183
 sVright side of the six yard box-right footed shot-corner
-p186
-(I15
-I39
-tp187
+p184
+(I148
+I294
+tp185
 sVoutside the box-left footed shot
-p188
-(I918
-I36727
-tp189
+p186
+(I426
+I32267
+tp187
 sVright side-right footed shot-headed pass
-p190
-(I34
-I516
-tp191
-sVright side
-p192
-(I1439
-I21181
-tp193
-sVright side-header-cross
-p194
-(I8
-I588
-tp195
-sVfast break
-p196
-(I4
-I4
-tp197
-sVheader
-p198
-(I4688
-I41593
-tp199
-sVleft side of the six yard box-right footed shot-corner
-p200
-(I6
-I29
-tp201
-sVright side-header-headed pass
-p202
-(I0
-I5
-tp203
-sVcentre of the box-header-headed pass
-p204
-(I48
-I552
-tp205
-sVheader-cross
-p206
-(I14
-I450
-tp207
-sVoutside the box-header-fast break
-p208
-(I0
-I2
-tp209
-sVright footed shot-fast break
-p210
-(I8
-I37
-tp211
-sVcentre of the box-header
-p212
-(I392
-I4268
-tp213
-sVcentre of the box-right footed shot
-p214
-(I3630
-I19544
-tp215
-sVvery close range-left footed shot-fast break
-p216
-(I18
-I19
-tp217
-sVvery close range-right footed shot
-p218
-(I1137
-I1788
-tp219
-sVlong range-left footed shot-fast break
-p220
-(I1
-I5
-tp221
-sVoutside the box-right footed shot-fast break
-p222
-(I84
-I527
-tp223
-sVvery close range-right footed shot-headed pass
-p224
-(I116
-I234
-tp225
-sVright footed shot-through ball
-p226
-(I42
-I275
-tp227
-sVoutside the box-left footed shot-fast break
-p228
-(I38
-I299
-tp229
-sVright side of the six yard box-left footed shot-through ball
-p230
-(I1
-I8
-tp231
-sVright footed shot-cross
-p232
+p188
 (I19
-I376
-tp233
+I327
+tp189
+sVright side
+p190
+(I1474
+I21416
+tp191
+sVright side-header-cross
+p192
+(I6
+I366
+tp193
+sVheader
+p194
+(I4847
+I42177
+tp195
+sVleft side of the six yard box-right footed shot-corner
+p196
+(I81
+I176
+tp197
+sVright side-header-headed pass
+p198
+(I0
+I4
+tp199
+sVcentre of the box-header-headed pass
+p200
+(I29
+I363
+tp201
+sVheader-cross
+p202
+(I11
+I285
+tp203
+sVright footed shot-fast break
+p204
+(I3
+I35
+tp205
+sVcentre of the box-header
+p206
+(I1103
+I13342
+tp207
+sVcentre of the box-right footed shot
+p208
+(I2696
+I20052
+tp209
+sVvery close range-left footed shot-fast break
+p210
+(I16
+I19
+tp211
+sVvery close range-right footed shot
+p212
+(I923
+I1689
+tp213
+sVlong range-left footed shot-fast break
+p214
+(I0
+I4
+tp215
+sVoutside the box-right footed shot-fast break
+p216
+(I5
+I228
+tp217
+sVvery close range-right footed shot-headed pass
+p218
+(I70
+I153
+tp219
+sVright footed shot-through ball
+p220
+(I24
+I161
+tp221
+sVoutside the box-left footed shot-fast break
+p222
+(I3
+I134
+tp223
+sVright side of the six yard box-left footed shot-through ball
+p224
+(I1
+I5
+tp225
+sVoutside the box-corner
+p226
+g120
+sVright footed shot-cross
+p227
+(I7
+I247
+tp228
 sVleft side-left footed shot-through ball
-p234
-(I175
-I922
-tp235
+p229
+(I108
+I545
+tp230
 sVleft side-right footed shot-direct free kick
-p236
+p231
 (I0
 I2
-tp237
+tp232
 sVleft side-header-cross
-p238
-(I11
-I609
-tp239
+p233
+(I10
+I389
+tp234
 sVright side-right footed shot-corner
-p240
-(I12
-I111
-tp241
+p235
+(I421
+I2061
+tp236
 sVcentre of the box-header-through ball
-p242
-(I38
-I130
-tp243
+p237
+(I21
+I72
+tp238
 sVvery close range-headed pass
-p244
-(I9
-I15
-tp245
+p239
+(I10
+I14
+tp240
 sVleft side of the six yard box-header-headed pass
-p246
-(I8
-I54
-tp247
+p241
+(I7
+I34
+tp242
 sVright side of the six yard box-header-headed pass
-p248
-(I11
-I55
-tp249
+p243
+(I6
+I36
+tp244
 sVlong range-left footed shot
-p250
-(I27
-I1239
-tp251
+p245
+(I15
+I1039
+tp246
 sVleft side-left footed shot
-p252
-(I488
-I9077
-tp253
-sVright side-right footed shot-fast break
-p254
-(I96
-I397
-tp255
+p247
+(I350
+I8659
+tp248
+sVright side of the six yard box-header-cross
+p249
+(I116
+I860
+tp250
 sVcentre of the box-left footed shot-cross
-p256
-(I386
-I2975
-tp257
+p251
+(I267
+I1971
+tp252
+sVright side of the six yard box-corner
+p253
+(I1
+I4
+tp254
 sVleft side of the six yard box-left footed shot-headed pass
-p258
-(I16
-I65
-tp259
+p255
+(I14
+I45
+tp256
 sVoutside the box-right footed shot-headed pass
-p260
-(I56
-I1810
-tp261
+p257
+(I50
+I1130
+tp258
 sVright side of the six yard box-left footed shot-cross
-p262
-(I26
-I117
-tp263
+p259
+(I16
+I68
+tp260
 sVleft side-right footed shot-headed pass
-p264
-(I13
-I241
-tp265
+p261
+(I8
+I160
+tp262
 sVvery close range-header-through ball
-p266
+p263
 g120
 sVheader-through ball
-p267
-(I2
-I3
-tp268
+p264
+g34
 sVleft side-left footed shot-fast break
-p269
-(I75
-I298
-tp270
+p265
+(I11
+I151
+tp266
 sVoutside the box-left footed shot-cross
-p271
-(I7
-I345
-tp272
+p267
+(I4
+I219
+tp268
 sVright side-left footed shot-through ball
-p273
-(I26
-I119
-tp274
+p269
+(I18
+I73
+tp270
 sVcentre of the box-right footed shot-headed pass
-p275
-(I252
-I1550
-tp276
+p271
+(I176
+I1059
+tp272
 sVleft side-header-corner
-p277
-(I0
-I5
-tp278
-sVleft side-left footed shot-cross
-p279
-(I26
-I679
-tp280
-sVvery close range-header-corner
-p281
-(I58
-I92
-tp282
-sVvery close range-left footed shot-cross
-p283
-(I154
-I334
-tp284
-sVleft footed shot-through ball
-p285
-(I35
-I222
-tp286
-sVoutside the box-header-headed pass
-p287
-(I0
-I4
-tp288
-sVright side-left footed shot-cross
-p289
-(I8
-I196
-tp290
-sVlong range-header-cross
-p291
-g92
-sVcentre of the box-headed pass
-p292
-(I1
-I9
-tp293
-sVoutside the box-header-through ball
-p294
-(I0
-I8
-tp295
-sVright side-right footed shot-cross
-p296
-(I38
-I932
-tp297
-sVright footed shot-headed pass
-p298
-(I7
-I162
-tp299
-sVright side-right footed shot
-p300
-(I694
-I11946
-tp301
-sS'date'
-p302
-S'20171113'
-p303
-sVvery close range-right footed shot-through ball
-p304
-(I14
-I24
-tp305
-sVvery close range-header-fast break
-p306
-(I7
-I8
-tp307
-sVleft side of the six yard box-right footed shot-fast break
-p308
+p273
 (I5
-I8
-tp309
-sVcentre of the box-header-corner
-p310
-(I15
-I127
-tp311
-sVleft side of the six yard box-left footed shot-through ball
-p312
-(I30
-I72
-tp313
-sVleft side of the six yard box
-p314
-(I870
-I4069
-tp315
-sVleft side of the six yard box-corner
-p316
+I45
+tp274
+sVleft side-left footed shot-cross
+p275
+(I17
+I439
+tp276
+sVvery close range-header-corner
+p277
+(I154
+I230
+tp278
+sVvery close range-left footed shot-cross
+p279
+(I94
+I208
+tp280
+sVleft footed shot-through ball
+p281
+(I26
+I142
+tp282
+sVoutside the box-header-headed pass
+p283
+(I0
+I3
+tp284
+sVright side-left footed shot-cross
+p285
+(I4
+I125
+tp286
+sVlong range-header-cross
+p287
+g34
+sVcentre of the box-headed pass
+p288
 (I1
-I2
-tp317
+I5
+tp289
+sVoutside the box-header-through ball
+p290
+(I0
+I8
+tp291
+sVright side-right footed shot-cross
+p292
+(I25
+I579
+tp293
+sVright footed shot-headed pass
+p294
+(I6
+I113
+tp295
+sVright side-right footed shot
+p296
+(I511
+I11387
+tp297
+sS'date'
+p298
+S'20171118'
+p299
+sVleft side of the six yard box-cross
+p300
+(I3
+I12
+tp301
+sVvery close range-header-fast break
+p302
+(I5
+I5
+tp303
+sVleft side of the six yard box-right footed shot-fast break
+p304
+(I3
+I4
+tp305
+sVcentre of the box-header-corner
+p306
+(I243
+I891
+tp307
+sVleft side of the six yard box-left footed shot-through ball
+p308
+(I24
+I50
+tp309
+sVleft side of the six yard box
+p310
+(I897
+I4132
+tp311
+sVleft side of the six yard box-corner
+p312
+(I1
+I4
+tp313
 sVvery close range-fast break
-p318
+p314
 g120
 sVleft side of the six yard box-header-cross
-p319
-(I195
-I1336
-tp320
-sVright side of the six yard box-corner
-p321
-(I0
-I3
-tp322
+p315
+(I129
+I867
+tp316
+sVpenalty-right footed shot-corner
+p317
+(I958
+I1189
+tp318
 sVvery close range-right footed shot-cross
-p323
-(I325
-I655
-tp324
-sVleft footed shot-corner
-p325
-(I1
-I20
-tp326
-sVleft side of the six yard box-left footed shot
-p327
-(I225
-I821
-tp328
-sVright side-header-fast break
-p329
-(I0
-I2
-tp330
-sVleft side of the six yard box-headed pass
-p331
-(I1
-I2
-tp332
-sVlong range-left footed shot-corner
-p333
-(I2
-I29
-tp334
-sVleft side-left footed shot-corner
-p335
-(I10
-I80
-tp336
-sVright side of the six yard box-header-through ball
-p337
-g92
-sVpenalty-right footed shot
-p338
-(I1718
-I2136
-tp339
-sVvery close range-header
-p340
-(I258
-I554
-tp341
-sVlong range-right footed shot-corner
-p342
-(I5
-I46
-tp343
-sVleft side of the six yard box-cross
-p344
+p319
+(I209
+I407
+tp320
+sVright side of the six yard box-right footed shot-fast break
+p321
 (I3
-I18
-tp345
+I9
+tp322
+sVcentre of the box-right footed shot-fast break
+p323
+(I72
+I233
+tp324
+sVlong range-left footed shot-corner
+p325
+(I17
+I185
+tp326
+sVleft side-left footed shot-corner
+p327
+(I314
+I1534
+tp328
+sVright side of the six yard box-header-through ball
+p329
+g34
+sVpenalty-right footed shot
+p330
+(I816
+I1006
+tp331
+sVvery close range-header
+p332
+(I462
+I1359
+tp333
+sVleft side of the six yard box-right footed shot
+p334
+(I105
+I594
+tp335
+sVvery close range-right footed shot-through ball
+p336
+(I8
+I15
+tp337
 sVvery close range-right footed shot-fast break
-p346
-(I43
-I46
-tp347
+p338
+(I18
+I22
+tp339
 sVvery close range
-p348
-(I4000
-I7879
-tp349
+p340
+(I4108
+I8030
+tp341
 sVlong range-left footed shot-headed pass
-p350
+p342
 (I1
-I24
-tp351
+I15
+tp343
 sVlong range-right footed shot-cross
-p352
+p344
 (I0
-I13
-tp353
+I8
+tp345
 sVlong range-right footed shot
-p354
-(I56
-I2216
-tp355
+p346
+(I24
+I1778
+tp347
 sVheader-headed pass
-p356
+p348
 (I1
 I3
-tp357
+tp349
 sVleft side
-p358
-(I1412
-I21861
-tp359
+p350
+(I1447
+I22107
+tp351
 sVright side of the six yard box-left footed shot-corner
-p360
-(I1
-I5
-tp361
+p352
+(I33
+I68
+tp353
 sVoutside the box-left footed shot-direct free kick
-p362
+p354
 (I0
-I53
-tp363
-sVcentre of the box-right footed shot-fast break
-p364
-(I350
-I590
-tp365
+I939
+tp355
+sVleft side of the six yard box-left footed shot
+p356
+(I153
+I782
+tp357
 sVvery close range-header-headed pass
-p366
-(I128
-I291
-tp367
-sVleft side of the six yard box-right footed shot
-p368
-(I148
-I576
-tp369
-sVright footed shot-corner
-p370
-(I2
-I42
-tp371
-sVvery close range-left footed shot-headed pass
-p372
-(I54
-I110
-tp373
-sVoutside the box-right footed shot
-p374
-(I1618
-I63271
-tp375
+p358
+(I93
+I195
+tp359
+sVlong range-right footed shot-corner
+p360
+(I43
+I409
+tp361
 sVoutside the box-right footed shot-cross
-p376
-(I12
-I581
-tp377
+p362
+(I8
+I380
+tp363
+sVvery close range-left footed shot-headed pass
+p364
+(I36
+I64
+tp365
+sVoutside the box-right footed shot
+p366
+(I754
+I56127
+tp367
+sVright footed shot-corner
+p368
+(I404
+I970
+tp369
 s.
