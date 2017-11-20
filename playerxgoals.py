@@ -5,7 +5,7 @@ from collections import defaultdict, Counter
 import json
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
-r.flushdb()
+#r.flushdb()
 
 
 db = couchdb.Server()
@@ -28,7 +28,7 @@ for player in players:
 
 
 ex = redis.StrictRedis(host='localhost', port=6379, db=1)
-ex.flushdb()
+#ex.flushdb()
 print "Created ex goals db"
 for key in r.scan_iter():
 	print key, " :: "
