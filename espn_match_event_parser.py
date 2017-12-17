@@ -109,13 +109,18 @@ class ESPNMatchEventParser(MatchEventParser):
 
     def clean_teams(self, lineups, curMatch):
         teams = lineups.keys()
+        c_lineup = {}
         if SequenceMatcher(curMatch.home[0], teams[0]).ratio() \
             > SequenceMatcher(curMatch.home[0], teams[1]).ratio():
-            lineups[curMatch.home[0]] = lineups[teams[0]]
-            lineups[curMatch.away[0]] = lineups[teams[1]]
+            c_lineup[curMatch.home[0]] = lineups[teams[0]]
+            c_lineup[curMatch.away[0]] = lineups[teams[1]]
         else:
-            lineups[curMatch.home[0]] = lineups[teams[1]]
-            lineups[curMatch.away[0]] = lineups[teams[0]]
+            c_lineup[curMatch.home[0]] = lineups[teams[1]]
+            c_lineup[curMatch.away[0]] = lineups[teams[0]]
+        for i in c_lineup:
+            print i
+            print c_lineup[i]
+        return c_lineup
 
     
     def get_event(self, mess):

@@ -12,7 +12,7 @@ from random import shuffle
 from copy import deepcopy
 import xlrd
 import match_event_parser
-
+import dill
 
 def is_goal(event):
     if event[0] == "Goal":
@@ -20,8 +20,7 @@ def is_goal(event):
     return 0
 
 
-
-class average_goals_calc:
+class average_goals_calc():
 
 	def __init__(self):
 		self.parse = espn_scraper.Parser()
@@ -34,7 +33,8 @@ class average_goals_calc:
 		self.attmp = {"left footed shot":(0,0), "right footed shot":(0,0), "header":(0,0)}
 		self.assist = {"headed pass":(0,0), "through ball":(0,0), "cross":(0,0), "corner":(0,0), "fast break":(0,0),
 			"direct free kick":(0,0)}
-		self.compound_events = {"date":datetime.today().strftime("%Y%m%d")}
+		self.compound_events = defaultdict(lambda: (0.0, 0.0))
+		self.compound_events["date"] = datetime.today().strftime("%Y%m%d")
 
 	#function for calculating expected goals when passed in a series of events
 	# events should only be for one team or one player 
@@ -44,29 +44,34 @@ class average_goals_calc:
 	        if event[1]:
 	            condition_prob = event[1]
 	            cnt = self.locations[event[1]]
+	            prev = self.compound_events[condition_prob]
 	            if is_goal(event):
 	                self.locations[event[1]] = (cnt[0]+1, cnt[1]+1)
-	                self.compound_events[event[1]] = (cnt[0]+1, cnt[1]+1)
+	                self.compound_events[condition_prob] = (1+prev[0], 1+prev[1])
 	            else:
 	                self.locations[event[1]] = (cnt[0], cnt[1]+1)
-	                self.compound_events[event[1]] = (cnt[0], cnt[1]+1)
+	                self.compound_events[condition_prob] = (prev[0], 1+prev[1])
 	        if event[2]:
 	            condition_prob += '-' + event[2]
 	            cnt = self.attmp[event[2]]
+	            prev = self.compound_events[condition_prob]
 	            if is_goal(event):
 	                self.attmp[event[2]] = (cnt[0]+1, cnt[1]+1)
-	                self.compound_events[event[2]] = (cnt[0]+1, cnt[1]+1)
+	                self.compound_events[condition_prob] = (prev[0]+1, prev[1]+1)
 	            else:
 	                self.attmp[event[2]] = (cnt[0], cnt[1]+1)
-	                self.compound_events[event[2]] = (cnt[0], cnt[1]+1)
+	                self.compound_events[condition_prob] = (prev[0], prev[1]+1)
 	        
 	        if event[3]:
 	            condition_prob += '-' + event[3]
 	            cnt = self.assist[event[3]]
+	            prev = self.compound_events[condition_prob]
 	            if is_goal(event):
 	                self.assist[event[3]] = (cnt[0]+1, cnt[1]+1)
+	                self.compound_events[condition_prob] = (prev[0]+1, prev[1]+1)
 	            else:
 	                self.assist[event[3]] = (cnt[0], cnt[1]+1)
+	                self.compound_events[condition_prob] = (prev[0], prev[1]+1)
 	        
 	        condition_prob = '-'.join(  item for item in event[1:-1] if item  )
 	        if condition_prob in self.compound_events:
@@ -90,10 +95,12 @@ class average_goals_calc:
 			self.compound_events = pickle.load( open( "save.p", "rb" ) )
 			print "loading model"
 			if _reset:
-				self.compound_events={"date": ""}
+				self.compound_events=defaultdict(lambda: (0.0, 0.0))
+				self.compound_events["date"] = ""
 			# model has not been updated for today
 			if self.compound_events["date"] < datetime.today().strftime("%Y%m%d"):
 				latest_date = self.compound_events["date"]
+				self.parse.run(latest_date)
 				print "Updating model to today"
 				raise Exception
 		except:
@@ -313,6 +320,8 @@ class average_goals_calc:
 
 
 
+
+
 # End of average_goals_calc class.
 
 
@@ -351,8 +360,6 @@ print "About to start 2016 tests"
 
 
 
-
-
 # RUN tests for 2016/17 season
 team14 = set(["Tottenham Hotspur", "Manchester City", "Manchester United"])
 next(schedule_file14)
@@ -361,26 +368,26 @@ teams = list(team14)
 xg_pleague = []
 with open('output/simulate2014.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
-	for sim_type in [0, 1, 2, 3]:
+	for sim_type in ["goal diff", "Expected Goals", "Average goal and ex goals", "goals with 5 vs 10 depth"]:
 		err=[]
 		_team=[]
 		for t in teams:
 			d, g, xG = xG_calculator.calc_for_team( set([t]), "20140805", "20150301", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
-			if sim_type == 2:
+			if sim_type == "Average goal and ex goals":
 				xg_pleague.append( (g+xG)/2.0 )
-			if sim_type == 0 or sim_type == 3:
+			if sim_type == "goal diff" or sim_type == "goals with 5 vs 10 depth":
 				xg_pleague.append( (g) )
-			if sim_type == 1:
+			if sim_type == "Expected Goals":
 				xg_pleague.append( (xG) )
 			print "xG for team::  ", t, " :  ", np.mean(xG), "  :  ", np.mean(g), "  :  ", (np.mean(g)+np.mean(xG))*.5
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [100]*30:
+		for num_sim in [100]*10:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
-			if sim_type == 3:
+			if sim_type == "goals with 5 vs 10 depth":
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule14, 10)
 			else:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule14, 15)
@@ -419,26 +426,26 @@ xg_pleague = []
 print "starting 2016"
 with open('output/simulate2016.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
-	for sim_type in [0, 1, 2, 3]:
+	for sim_type in ["goal diff", "Expected Goals", "Average goal and ex goals", "goals with 5 vs 10 depth"]:
 		err=[]
 		_team=[]
 		for t in teams:
 			d, g, xG = xG_calculator.calc_for_team( set([t]), "20160805", "20170301", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
-			if sim_type == 2:
+			if sim_type == "Average goal and ex goals":
 				xg_pleague.append( (g+xG)/2.0 )
-			if sim_type == 0 or sim_type == 3:
+			if sim_type == "goal diff" or sim_type == "goals with 5 vs 10 depth":
 				xg_pleague.append( (g) )
-			if sim_type == 1:
+			if sim_type == "Expected Goals":
 				xg_pleague.append( (xG) )
 			print "xG for team::  ", t, " :  ", np.mean(xG), "  :  ", np.mean(g), "  :  ", (np.mean(g)+np.mean(xG))*.5
 			_team.append(t)
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [100]*30:
+		for num_sim in [100]*10:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
-			if sim_type == 3:
+			if sim_type == "goals with 5 vs 10 depth":
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule16, 10)
 			else:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule16, 15)
@@ -485,27 +492,27 @@ teams = list(team15)
 xg_pleague = []
 with open('output/simulate2015.txt', "w") as sims_f:
 	# 0: g, 1: xG, 2: g+xG/2, 3: 5 vs 10 depth w/g
-	for sim_type in [0, 1, 2, 3]:
+	for sim_type in ["goal diff", "Expected Goals", "Average goal and ex goals", "goals with 5 vs 10 depth"]:
 		err=[]
 		_team=[]
 		for t in teams:
 			d, g, xG = xG_calculator.calc_for_team( set([t]), "20150805", "20160301", )
 			if len(xG) == 0 or len(g) == 0:
 				continue
-			if sim_type == 2:
+			if sim_type == "Average goal and ex goals":
 				xg_pleague.append( (g+xG)/2.0 )
-			if sim_type == 0 or sim_type == 3:
+			if sim_type == "goal diff" or sim_type == "goals with 5 vs 10 depth":
 				xg_pleague.append( (g) )
-			if sim_type == 1:
+			if sim_type == "Expected Goals":
 				xg_pleague.append( (xG) )
 			print "xG for team::  ", t, " :  ", np.mean(xG), "  :  ", np.mean(g), "  :  ", (np.mean(g)+np.mean(xG))*.5
 			_team.append(t)
 		
 		sims_f.write( "Starting run of multiple simulations with sim type: "+ str(sim_type)+ " ::: \n\n\n" )
 		print "Starting run of multiple simulations with sim type: ", str(sim_type), " ::: \n\n"
-		for num_sim in [100]*30:#, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 ]:
+		for num_sim in [100]*10:
 			sims_f.write( "Number of simulations on this round: " + str(num_sim)  + "\n" )
-			if sim_type == 3:
+			if sim_type == "goals with 5 vs 10 depth":
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule15, 10)
 			else:
 				simulation = xG_calculator.simulate_league(num_sim, xg_pleague, _team, schedule15, 15)

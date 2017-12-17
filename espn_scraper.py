@@ -52,6 +52,9 @@ class Parser():
         self.homeView = ViewDefinition( "games", "teams", self.seen_games )
         self.homeView.sync(self.recorded_games)
 
+    def run(self, date):
+        get_date_games( datetime.today(), datetime.strptime(date, "%Y%m     %d") )
+
     def get_date_games(self, startDate, endDate):
         user_agent = ("Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US;"
                               " rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7")
@@ -101,7 +104,7 @@ class Parser():
                                 self.parse_game_events(sub_text("report", "commentary", k["href"]),
                                     path, curDate, curLeague)
                     curLeage = "NoLeagueCaught"
-                except (urllib2.HTTPError, KeyError) as e:
+                except (urllib2.HTTPError) as e:
                     print str(e)
                     print "Internal server error or could not league keys"
                     continue
@@ -200,7 +203,7 @@ class Parser():
             print "---------- failed parsing score, skipping --------\n\n"
             return
         print curMatch.home, "  ", curMatch.away, " TEAMS-------------------------\n\n"
-        self.espnParser.clean_teams(lineups, curMatch)
+        lineups = self.espnParser.clean_teams(lineups, curMatch)
         for events in lines:
             event = events.find_all('td')
             # if there was a goal attempt, get information for xG
@@ -236,9 +239,12 @@ class Parser():
                         "red card":_events["red card"].get(match.home[0]), "subs":_events["sub"].get(match.home[0]),
                         "goal" : _events["goal"].get(match.home[0]), "lineup":lineups[match.home[0]]}
         doc['away'] = {"team name": match.away[0], "score": match.away[1], "scoring events" :
-                        _scoring_event[match.away[0]], "yellow card" : _events["yellow card"].get(match.away[0]),
-                        "red card":_events["red card"].get(match.away[0]), "subs":_events["sub"].get(match.away[0]),
-                        "goal" : _events["goal"].get(match.away[0]), "lineup":lineups[match.away[0]]}
+                        _scoring_event[match.away[0]], 
+                        "yellow card" : _events["yellow card"].get(match.away[0]),
+                        "red card":_events["red card"].get(match.away[0]), 
+                        "subs":_events["sub"].get(match.away[0]),
+                        "goal" : _events["goal"].get(match.away[0]), 
+                        "lineup":lineups[match.away[0]]}
         doc['score'] = match.score
         doc['date'] = match.name
         doc['league'] = match.league
@@ -255,7 +261,7 @@ class Parser():
 
 if __name__ == "__main__":
     parse = Parser()
-    parse.get_date_games( datetime(2011,11, 3), datetime(2005, 10, 9) )#datetime.today(),
+    parse.get_date_games( datetime(2017,11, 21), datetime(2005, 10, 9) )#datetime.today(),
 #parse.get_date_games( datetime(2017, 10, 11), datetime(2017, 10, 9))
 
 

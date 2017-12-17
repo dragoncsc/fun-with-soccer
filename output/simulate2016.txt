@@ -1,52 +1,4 @@
-Starting run of multiple simulations with sim type: 0 ::: 
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
-
-
-Number of simulations on this round: 100
-Errors for simulation: 42
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
+Starting run of multiple simulations with sim type: goal diff ::: 
 
 
 Number of simulations on this round: 100
@@ -54,11 +6,15 @@ Errors for simulation: 40
 
 
 Number of simulations on this round: 100
-Errors for simulation: 38
+Errors for simulation: 40
 
 
 Number of simulations on this round: 100
-Errors for simulation: 42
+Errors for simulation: 36
+
+
+Number of simulations on this round: 100
+Errors for simulation: 38
 
 
 Number of simulations on this round: 100
@@ -70,27 +26,7 @@ Errors for simulation: 42
 
 
 Number of simulations on this round: 100
-Errors for simulation: 42
-
-
-Number of simulations on this round: 100
-Errors for simulation: 32
-
-
-Number of simulations on this round: 100
-Errors for simulation: 26
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
+Errors for simulation: 38
 
 
 Number of simulations on this round: 100
@@ -105,33 +41,9 @@ Number of simulations on this round: 100
 Errors for simulation: 38
 
 
-Number of simulations on this round: 100
-Errors for simulation: 36
+avg:  40.4  | std:  3.66606055596
 
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-avg:  39.3333333333  | std:  4.68567557088
-
-Starting run of multiple simulations with sim type: 1 ::: 
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 52
+Starting run of multiple simulations with sim type: Expected Goals ::: 
 
 
 Number of simulations on this round: 100
@@ -139,19 +51,27 @@ Errors for simulation: 42
 
 
 Number of simulations on this round: 100
-Errors for simulation: 44
+Errors for simulation: 40
 
 
 Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
+Errors for simulation: 32
 
 
 Number of simulations on this round: 100
 Errors for simulation: 34
+
+
+Number of simulations on this round: 100
+Errors for simulation: 38
+
+
+Number of simulations on this round: 100
+Errors for simulation: 44
+
+
+Number of simulations on this round: 100
+Errors for simulation: 44
 
 
 Number of simulations on this round: 100
@@ -163,35 +83,24 @@ Errors for simulation: 40
 
 
 Number of simulations on this round: 100
-Errors for simulation: 30
-
-
-Number of simulations on this round: 100
 Errors for simulation: 38
 
 
-Number of simulations on this round: 100
-Errors for simulation: 38
+avg:  39.6  | std:  3.97994974843
+
+Starting run of multiple simulations with sim type: Average goal and ex goals ::: 
 
 
 Number of simulations on this round: 100
-Errors for simulation: 32
+Errors for simulation: 40
 
 
 Number of simulations on this round: 100
-Errors for simulation: 38
+Errors for simulation: 40
 
 
 Number of simulations on this round: 100
-Errors for simulation: 42
-
-
-Number of simulations on this round: 100
-Errors for simulation: 42
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
+Errors for simulation: 36
 
 
 Number of simulations on this round: 100
@@ -203,72 +112,7 @@ Errors for simulation: 32
 
 
 Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
-
-
-Number of simulations on this round: 100
 Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
-
-
-Number of simulations on this round: 100
-Errors for simulation: 38
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-avg:  39.2  | std:  4.60724067818
-
-Starting run of multiple simulations with sim type: 2 ::: 
-
-
-Number of simulations on this round: 100
-Errors for simulation: 42
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 32
-
-
-Number of simulations on this round: 100
-Errors for simulation: 32
 
 
 Number of simulations on this round: 100
@@ -280,27 +124,20 @@ Errors for simulation: 34
 
 
 Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 30
+Errors for simulation: 42
 
 
 Number of simulations on this round: 100
 Errors for simulation: 42
 
 
-Number of simulations on this round: 100
-Errors for simulation: 48
+avg:  39.0  | std:  3.7148351242
+
+Starting run of multiple simulations with sim type: goals with 5 vs 10 depth ::: 
 
 
 Number of simulations on this round: 100
 Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 42
 
 
 Number of simulations on this round: 100
@@ -309,14 +146,6 @@ Errors for simulation: 36
 
 Number of simulations on this round: 100
 Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 52
-
-
-Number of simulations on this round: 100
-Errors for simulation: 42
 
 
 Number of simulations on this round: 100
@@ -324,177 +153,28 @@ Errors for simulation: 38
 
 
 Number of simulations on this round: 100
-Errors for simulation: 28
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 42
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
 Errors for simulation: 36
 
 
 Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-avg:  39.2  | std:  5.52810998443
-
-Starting run of multiple simulations with sim type: 3 ::: 
-
-
-Number of simulations on this round: 100
 Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 48
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
-
-
-Number of simulations on this round: 100
-Errors for simulation: 32
-
-
-Number of simulations on this round: 100
-Errors for simulation: 48
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 52
-
-
-Number of simulations on this round: 100
-Errors for simulation: 50
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 42
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 46
-
-
-Number of simulations on this round: 100
-Errors for simulation: 44
-
-
-Number of simulations on this round: 100
-Errors for simulation: 32
-
-
-Number of simulations on this round: 100
-Errors for simulation: 40
-
-
-Number of simulations on this round: 100
-Errors for simulation: 34
-
-
-Number of simulations on this round: 100
-Errors for simulation: 36
 
 
 Number of simulations on this round: 100
 Errors for simulation: 38
 
 
-avg:  40.6  | std:  5.63678395305
+Number of simulations on this round: 100
+Errors for simulation: 40
+
+
+Number of simulations on this round: 100
+Errors for simulation: 34
+
+
+Number of simulations on this round: 100
+Errors for simulation: 36
+
+
+avg:  36.8  | std:  2.03960780544
 
