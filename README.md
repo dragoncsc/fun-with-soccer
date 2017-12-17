@@ -1,5 +1,7 @@
 # Fun with Soccer
 
+This project serves as my introduction to data science. Nothing in here is meant to be informative and my methodology may be flawed. If you find any issues in my process feel free to contact me with critiques.
+
 Soccer simulator that scrapes ESPN commentaries, analyzes them, and then attempts to simulate a soccer season (starting from a point in time that you provide). This model attempts to impcorporate the idea of expected goals, where instead of simply using the number of goals scored as an indicator of team strength, the model takes into account the actual shots on goal, and the likelihood of these shots to go in. The expected goals model is built on 10 years worth of games and about 500,000 attempts on goal. The expected goals model is parametrized based on 1) location of shot 2) body part used to shoot 3) assist type as given by the commentary. Starting from the **date** given by the user and the number of games in the past (**n**) the model should use to initialize team strengths, the model first calculates the expected goals for the **n** games in the past, and then finds the maximum likelihood parameter \lambda to be used in the team's generative model (which takes the form of a poisson process). Then, using the schedule for the season, the teams are simulated against eachother, where each game involves drawing from the team's generative model. The winner of the game is the model which outputted the higher expected goal value. The model can either be updated to incorporate the outputed value or can remain static. The winner of a game gets 3 points, a draw give both participants 1 point and a loss results in 0 points. The simulation can then be rerun as many times as desired.
 
 
@@ -96,7 +98,7 @@ Here's some output from simulating the past three premier league seasons, with e
 
 Unfortunately the errors are quite close to eachother for all three types of goal counting methods  so I can't conclusively say that one method is better than another. This is probably due in part to the lack of granularity of information offered by the ESPN commentaries. The shot positions were quite vague ("Left side of the 16 yard box", "Outside of the box", "Far outside the box").
 
-
+Interestingly, the errors aren't too large, for the 2016-2017 season, a team in my simulation was off its true position by around 1.9 places which is pretty cool.
 
 
 
